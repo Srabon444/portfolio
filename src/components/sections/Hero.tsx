@@ -12,7 +12,7 @@ export default function Hero() {
   
   useEffect(() => {
     // Dynamic import of the Lottie animation
-    fetch("/lottie/coding.json")
+    fetch("/lottie/development.json")
       .then(response => response.json())
       .then(data => setAnimationData(data))
       .catch(error => console.error("Error loading Lottie animation:", error));
