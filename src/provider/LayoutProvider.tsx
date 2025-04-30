@@ -1,11 +1,7 @@
 "use client";
 
-import { Poppins } from "next/font/google";
 import React from "react";
 import { Toaster } from "react-hot-toast";
-import CopyrightFooter from "@/components/shared/CopyrightFooter";
-
-const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700"] });
 
 export default function LayoutProvider({
   children,
@@ -14,11 +10,20 @@ export default function LayoutProvider({
 }) {
   return (
     <>
-      <Toaster position="top-right" />
-      <main className={`mx-auto min-h-screen ${poppins.className}`}>
+      <Toaster 
+        position="top-right"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: 'var(--color-card)',
+            color: 'var(--color-card-foreground)',
+            border: '1px solid var(--color-border)',
+          },
+        }} 
+      />
+      <main className="mx-auto min-h-screen">
         {children}
       </main>
-      <CopyrightFooter />
     </>
   );
 }

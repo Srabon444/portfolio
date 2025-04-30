@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/provider/ThemeProvider";
-import { Poppins } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import LayoutProvider from "@/provider/LayoutProvider";
 import ReactQueryProvider from "@/provider/QueryClientProvider";
 
 export const metadata: Metadata = {
-  title: "Ashraful Portfolio",
-  description: "This is Ashraful's portfolio",
+  title: "Ashraful Islam - Full Stack Developer",
+  description: "Professional portfolio of Ashraful Islam, Full Stack Developer specializing in modern web technologies.",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
 };
-
-const poppins = Poppins({ subsets: ["latin"], weight: "400", display: "swap" });
 
 export default function RootLayout({
   children,
@@ -21,19 +24,12 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className="light"
-      style={{ colorScheme: "light" }}
     >
       <head>
-        <meta name="apple-mobile-web-app-title" content="ASHRAFUL" />
+        <meta name="apple-mobile-web-app-title" content="Ashraful Islam" />
       </head>
       <body
-        className={poppins.className}
-        style={{
-          colorScheme: "light",
-          backgroundColor: "var(--background)",
-          color: "var(--text)",
-        }}
+        className={`${GeistSans.variable} ${GeistMono.variable} font-sans antialiased`}
         suppressHydrationWarning
       >
         <ThemeProvider>
