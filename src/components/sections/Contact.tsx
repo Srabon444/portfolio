@@ -84,10 +84,10 @@ export default function Contact() {
     // Using environment variables for EmailJS configuration
     emailjs
       .sendForm(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID",  
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID",
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "SERVICE_ID",
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "TEMPLATE_ID",
         formRef.current!,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || process.env.EMAIL_JS || "YOUR_USER_ID"
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || process.env.EMAIL_JS || "USER_ID"
       )
       .then(
         (result) => {
@@ -361,7 +361,7 @@ export default function Contact() {
             </form>
             
             <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
-              * I'll get back to you as soon as possible. Your information is never shared with third parties.
+              * I&apos;ll get back to you as soon as possible. Your information is never shared with third parties.
             </p>
           </motion.div>
         </div>

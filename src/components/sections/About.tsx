@@ -3,7 +3,6 @@
 import { personalInfo, experiences, educations } from "@/data/portfolioData";
 import Container from "../shared/Container";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import ContactButton from "../shared/ContactButton";
 
@@ -21,7 +20,7 @@ export default function About() {
           <h2 className="text-3xl font-bold mb-4">About Me</h2>
           <div className="h-1 w-24 bg-primary dark:bg-primary mx-auto mb-6"></div>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Here you'll find more information about me, my current role, and my skills.
+            Here you&apos;ll find more information about me, my current role, and my skills.
           </p>
         </motion.div>
 
@@ -35,7 +34,7 @@ export default function About() {
             <h3 className="text-2xl font-semibold mb-4">Get to know me!</h3>
             <div className="space-y-4 text-gray-600 dark:text-gray-300">
               <p>
-                I'm a <strong>Full Stack Developer</strong> with a passion for creating 
+                I&apos;m a <strong>Full Stack Developer</strong> with a passion for creating
                 beautiful, functional, and user-centered digital experiences. I am 
                 always striving to learn new technologies and stay ahead in this 
                 fast-paced industry.
@@ -46,7 +45,7 @@ export default function About() {
                 functionality. I enjoy solving problems and creating efficient solutions.
               </p>
               <p>
-                When I'm not coding, you can find me exploring new technologies, 
+                When I&apos;m not coding, you can find me exploring new technologies,
                 contributing to open-source projects, and sharing knowledge with the 
                 developer community.
               </p>
