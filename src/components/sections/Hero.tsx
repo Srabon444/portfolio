@@ -4,13 +4,20 @@ import { personalInfo } from "@/data/portfolioData";
 import Container from "../shared/Container";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Lottie from "lottie-react";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+
+// Dynamically import Lottie with ssr disabled
+const Lottie = dynamic(() => import("lottie-react"), {
+  ssr: false,
+});
 
 export default function Hero() {
   const [animationData, setAnimationData] = useState(null);
+  const [isMounted, setIsMounted] = useState(false);
   
   useEffect(() => {
+    setIsMounted(true);
     // Dynamic import of the Lottie animation
     fetch("/lottie/development.json")
       .then(response => response.json())
@@ -108,7 +115,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="w-full max-w-md lg:max-w-lg"
         >
-          {animationData && (
+          {isMounted && animationData && (
             <Lottie 
               animationData={animationData} 
               loop={true}

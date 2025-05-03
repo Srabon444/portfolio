@@ -1,9 +1,13 @@
 import Home from "@/components/Home";
+import { Suspense } from "react";
+import Loading from "@/components/shared/Loading";
 
 const page = () => {
   return (
     <>
-      <Home />
+      <Suspense fallback={<Loading />}>
+        <Home />
+      </Suspense>
     </>
   );
 };

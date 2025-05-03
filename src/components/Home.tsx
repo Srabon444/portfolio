@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
@@ -10,19 +10,23 @@ import Quote from "@/components/sections/Quote";
 import Navigation from "@/components/shared/Navigation";
 import CopyrightFooter from "@/components/shared/CopyrightFooter";
 import ScrollToTop from "@/components/shared/ScrollToTop";
+import { Suspense } from "react";
+import Loading from "@/components/shared/Loading";
 
 export default function Home() {
   return (
     <>
       <Navigation />
       <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Experience />
-        <Quote />
-        <Skills />
-        <Contact />
+        <Suspense fallback={<Loading />}>
+          <Hero />
+          <About />
+          <Projects />
+          <Experience />
+          <Quote />
+          <Skills />
+          <Contact />
+        </Suspense>
       </main>
       <CopyrightFooter />
       <ScrollToTop />

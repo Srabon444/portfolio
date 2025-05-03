@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Container from "../shared/Container";
+import Loading from "../shared/Loading";
 import { motion } from "framer-motion";
 
 interface Quote {
@@ -90,18 +91,11 @@ export default function Quote() {
           className="max-w-3xl mx-auto text-center"
         >
           {isLoading ? (
-            <div className="h-20 flex items-center justify-center">
-              <div className="animate-pulse flex space-x-4">
-                <div className="flex-1 space-y-4 py-1">
-                  <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mx-auto"></div>
-                  <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2 mx-auto"></div>
-                </div>
-              </div>
-            </div>
+            <Loading />
           ) : (
             <>
               <svg 
-                className="w-8 h-8 text-primary dark:text-primary-foreground mx-auto mb-4" 
+                className="w-8 h-8 text-primary dark:text-blue-300 mx-auto mb-4" 
                 fill="currentColor" 
                 viewBox="0 0 24 24"
               >
