@@ -5,6 +5,7 @@ import Container from "../shared/Container";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -59,19 +60,28 @@ export default function Projects() {
               className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow flex flex-col h-full"
             >
               <div className="relative h-48 w-full overflow-hidden">
-                <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-                  <svg className="h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                {/* If you have actual project images, uncomment this
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-300 hover:scale-105"
-                />
-                */}
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority
+                    className="object-fit transition-transform duration-300 hover:scale-105"
+                    unoptimized
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      console.error(`Failed to load image: ${project.image}`);
+                    }}
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                    <svg className="h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                )}
               </div>
               
               <div className="p-5 flex-grow flex flex-col">
@@ -111,17 +121,17 @@ export default function Projects() {
                     </svg>
                     Live Demo
                   </Link>
-                  <Link
-                    href={project.codeLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-3 py-1.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors text-sm font-medium flex items-center"
-                  >
-                    <svg className="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                    </svg>
-                    View Code
-                  </Link>
+                  {/*<Link*/}
+                  {/*  href={project.codeLink}*/}
+                  {/*  target="_blank"*/}
+                  {/*  rel="noopener noreferrer"*/}
+                  {/*  className="px-3 py-1.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors text-sm font-medium flex items-center"*/}
+                  {/*>*/}
+                  {/*  <svg className="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">*/}
+                  {/*    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />*/}
+                  {/*  </svg>*/}
+                  {/*  View Code*/}
+                  {/*</Link>*/}
                 </div>
               </div>
             </motion.div>
