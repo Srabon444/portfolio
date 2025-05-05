@@ -28,7 +28,7 @@ export default function ThemeToggle() {
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       aria-label="Toggle theme"
-      className="w-9 h-9 rounded-md flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+      className="w-9 h-9 rounded-md flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer"
     >
       <AnimatePresence mode="wait" initial={false}>
         <motion.div

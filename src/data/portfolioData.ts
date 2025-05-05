@@ -5,8 +5,8 @@ export const personalInfo = {
   phone: "+880 1675996598",
   location: "Bangladesh",
   availability: "Open to new opportunities",
-  bio: "Passionate full-stack developer with expertise in modern web technologies. I build elegant, responsive, and performant web applications that solve real-world problems.",
-  github: "https://gitlab.com/ashraful-islam-rabby",
+  bio: "Passionate full-stack software engineer with expertise in modern web technologies. I build elegant, responsive, and performant web applications that solve real-world problems.",
+  gitlab: "https://gitlab.com/users/srabon444/starred",
   linkedin: "https://www.linkedin.com/in/ashraful-islam-rabby/",
 };
 
@@ -83,7 +83,7 @@ export const projects = [
 export const experiences = [
   {
     id: 1,
-    role: "Full-Stack Engineer",
+    role: "Full-Stack Software Engineer",
     company: "Tech Analytica Limited",
     period: "August 2024 - Present",
     description: "Built responsive, high-performance web apps using Next.js, TypeScript, and JavaScript. Led end-to-end projects, collaborating with design and backend teams. Enhanced code quality and performance through reusable components and debugging. Led when needed, coordinating with teammates and maintaining Git version control.",
