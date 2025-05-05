@@ -40,8 +40,8 @@ export default function Quote() {
   const fetchQuote = async () => {
     setIsLoading(true);
     try {
-      // Using API Ninja with environment variable for the API key
-      const response = await fetch("https://api.api-ninjas.com/v1/quotes?category=inspirational", {
+      // Using API Ninja without the category parameter which is premium-only
+      const response = await fetch("https://api.api-ninjas.com/v1/quotes", {
         headers: {
           'X-Api-Key': process.env.NEXT_PUBLIC_API_NINJA_KEY || '',
           'Content-Type': 'application/json'
@@ -63,6 +63,7 @@ export default function Quote() {
         }
       } else {
         // If API fails, use a random quote from our default list
+        console.error("API response not OK:", await response.text());
         const randomIndex = Math.floor(Math.random() * defaultQuotes.length);
         setQuote(defaultQuotes[randomIndex]);
       }
