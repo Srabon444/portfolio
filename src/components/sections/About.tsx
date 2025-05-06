@@ -2,7 +2,7 @@
 
 import { personalInfo, skills } from "@/data/portfolioData";
 import Container from "../shared/Container";
-import { motion } from "framer-motion";
+import SmoothScrollReveal from "../shared/SmoothScrollReveal";
 import Link from "next/link";
 import ContactButton from "../shared/ContactButton";
 
@@ -43,28 +43,16 @@ export default function About() {
   return (
     <section id="about" className="py-20 bg-gray-50 dark:bg-gray-900/30">
       <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mb-12 text-center"
-        >
+        <SmoothScrollReveal className="mb-12 text-center" duration={0.5}>
           <h2 className="text-3xl font-bold mb-4">About Me</h2>
           <div className="h-1 w-24 bg-primary dark:bg-primary mx-auto mb-6"></div>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Here you&apos;ll find more information about me, my current role, and my approach to software engineering.
           </p>
-        </motion.div>
+        </SmoothScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="space-y-4"
-          >
+          <SmoothScrollReveal direction="left" delay={0.2} duration={0.5} className="space-y-4">
             <h3 className="text-2xl font-semibold mb-4">Get to know me!</h3>
             <div className="space-y-4 text-gray-600 dark:text-gray-300">
               <p>
@@ -87,25 +75,17 @@ export default function About() {
                 <ContactButton text="Contact Me" />
               </div>
             </div>
-          </motion.div>
+          </SmoothScrollReveal>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
+          <SmoothScrollReveal direction="right" delay={0.3} duration={0.5} className="space-y-6">
             <h3 className="text-2xl font-semibold mb-4">My Technical Philosophy</h3>
             
             <div className="space-y-6">
               {coreValues.map((value, index) => (
-                <motion.div 
+                <SmoothScrollReveal 
                   key={index}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.5 + (index * 0.1) }}
-                  viewport={{ once: true }}
+                  duration={0.4}
+                  delay={0.4 + (index * 0.1)}
                   className="flex items-start"
                 >
                   <div className="flex-shrink-0 mr-4">
@@ -115,7 +95,7 @@ export default function About() {
                     <h4 className="text-lg font-medium mb-1">{value.title}</h4>
                     <p className="text-sm text-gray-600 dark:text-gray-400">{value.description}</p>
                   </div>
-                </motion.div>
+                </SmoothScrollReveal>
               ))}
             </div>
             
@@ -135,7 +115,7 @@ export default function About() {
                 Download Resume
               </Link>
             </div>
-          </motion.div>
+          </SmoothScrollReveal>
         </div>
       </Container>
     </section>
