@@ -10,6 +10,7 @@ import Quote from "@/components/sections/Quote";
 import Navigation from "@/components/shared/Navigation";
 import CopyrightFooter from "@/components/shared/CopyrightFooter";
 import ScrollToTop from "@/components/shared/ScrollToTop";
+import ScrollWrapper from "@/components/shared/ScrollWrapper";
 import { Suspense } from "react";
 import Loading from "@/components/shared/Loading";
 
@@ -17,18 +18,20 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      <main>
-        <Suspense fallback={<Loading />}>
-          <Hero />
-          <About />
-          <Projects />
-          <Experience />
-          <Quote />
-          <Skills />
-          <Contact />
-        </Suspense>
-      </main>
-      <CopyrightFooter />
+      <ScrollWrapper>
+        <main>
+          <Suspense fallback={<Loading />}>
+            <Hero />
+            <About />
+            <Projects />
+            <Experience />
+            <Quote />
+            <Skills />
+            <Contact />
+          </Suspense>
+        </main>
+        <CopyrightFooter />
+      </ScrollWrapper>
       <ScrollToTop />
     </>
   );

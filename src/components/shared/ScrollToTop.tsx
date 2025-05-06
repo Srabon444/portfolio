@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import gsap from "gsap";
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,10 +23,15 @@ export default function ScrollToTop() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    // Use GSAP ScrollSmoother if available, otherwise fallback to default
+    if (typeof window !== 'undefined' && (window as any).smoother) {
+      (window as any).smoother.scrollTo(0, { duration: 1 });
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
