@@ -24,7 +24,6 @@ body {
   height: auto; /* Let the body expand to content */
   /* Scroll behavior is handled by JS */
   overscroll-behavior-y: none; /* Prevent bounce on some browsers */
-  cursor: none !important; /* Keep the cursor hidden since we're using a custom cursor */
 }
 
 /* Hide the default scrollbar while keeping functionality */
@@ -41,12 +40,10 @@ body {
 
 /* Interactive elements should still have pointer events */
 a, button, input, textarea, select, .link, [role="button"] {
-  cursor: none !important;
 }
 
 /* Maintain pointer events on hover */
 a:hover, button:hover, .link:hover, [role="button"]:hover {
-  cursor: none !important;
 }
 
 /* Critical fix for blinking: isolate the stacking context */
