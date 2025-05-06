@@ -10,7 +10,18 @@ import Image from "next/image";
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
   
-  const filters = ["All", ...new Set(projects.flatMap(project => project.technologies).filter(Boolean))];
+  // Create array of all technologies from projects
+  const allTechnologies = [...new Set(projects.flatMap(project => project.technologies).filter(Boolean))];
+  
+  // Ensure these important technologies are included in the filters
+  const priorityTechnologies = ["Next.js", "React.js", "TypeScript", "TanStack Query", "Google Maps API"];
+  
+  // Create filters array with priority technologies first, followed by others
+  const filters = [
+    "All", 
+    ...priorityTechnologies.filter(tech => allTechnologies.includes(tech)),
+    ...allTechnologies.filter(tech => !priorityTechnologies.includes(tech))
+  ];
   
   const filteredProjects = activeFilter === "All" 
     ? projects 
@@ -87,9 +98,14 @@ export default function Projects() {
               <div className="p-5 flex-grow flex flex-col">
                 <div className="flex justify-between items-start mb-2">
                   <h3 className="text-lg font-semibold">{project.title}</h3>
-                  {project.featured && (
+                  {project.work && (
                     <span className="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 text-xs px-2 py-0.5 rounded-full">
-                      Featured
+                      Work
+                    </span>
+                  )}
+                  {project.hobby && (
+                    <span className="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 text-xs px-2 py-0.5 rounded-full">
+                      Hobby
                     </span>
                   )}
                 </div>
