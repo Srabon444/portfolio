@@ -28,13 +28,14 @@ export default function Experience() {
         </motion.div>
 
         <div className="flex justify-center mb-10">
+          {/* Improved tab buttons with better contrast in dark mode */}
           <div className="inline-flex bg-gray-100 dark:bg-gray-800 rounded-lg p-1.5 shadow-md">
             <button
               onClick={() => setActiveTab("work")}
               className={`px-5 py-2.5 rounded-md text-sm font-medium transition-all ${
                 activeTab === "work"
-                  ? "bg-white dark:bg-gray-700 shadow-sm text-primary dark:text-primary-foreground"
-                  : "text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
+                  ? "bg-white dark:bg-gray-700 shadow-sm text-primary dark:text-white font-bold" // Improved contrast for active tab
+                  : "text-gray-600 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600" // Better visibility for inactive tab
               }`}
             >
               Work Experience
@@ -80,16 +81,16 @@ export default function Experience() {
                   ></div>
                   
                   <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                    {/* Period tag */}
-                    <span className="inline-block px-3 py-1.5 rounded-full text-xs font-medium bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-foreground mb-3 border border-primary/20 dark:border-primary/30">
+                    {/* Period tag with improved visibility in dark mode */}
+                    <span className="inline-block px-3 py-1.5 rounded-full text-xs font-medium bg-primary/10 dark:bg-primary/30 text-primary dark:text-white font-bold mb-3 border border-primary/20 dark:border-primary/40">
                       {experience.period}
                     </span>
                     
                     {/* Job type badge */}
                     <span className={`ml-2 inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border ${
                       experience.jobType === "Remote" 
-                        ? "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-300 dark:border-emerald-800/70" 
-                        : "bg-indigo-50 text-indigo-700 border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-300 dark:border-indigo-800/70"
+                        ? "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-900/50 dark:text-emerald-200 dark:border-emerald-800/70" 
+                        : "bg-indigo-50 text-indigo-700 border-indigo-200 dark:bg-indigo-900/50 dark:text-indigo-200 dark:border-indigo-800/70"
                     }`}>
                       {experience.jobType === "Remote" ? (
                         <>
@@ -171,7 +172,8 @@ export default function Experience() {
                   ></div>
                   
                   <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                    <span className="inline-block px-3 py-1.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-200 mb-3 border border-blue-200 dark:border-blue-800/70">
+                    {/* Improved education period visibility in dark mode */}
+                    <span className="inline-block px-3 py-1.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-white font-bold mb-3 border border-blue-200 dark:border-blue-700">
                       {education.period}
                     </span>
                     
