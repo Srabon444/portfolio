@@ -12,16 +12,41 @@ html {
   width: 100%;
   position: relative;
   -webkit-overflow-scrolling: touch; /* Better scroll on iOS */
+  /* Do NOT set overflow: hidden here as it breaks the custom scroll implementation */
 }
 
 body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  /* This is important - hide scrollbars but keep scrolling functionality */
-  overflow-y: scroll;
+  /* This is important for the custom scrolling implementation */
+  overflow-y: auto; 
+  height: auto; /* Let the body expand to content */
   /* Scroll behavior is handled by JS */
   overscroll-behavior-y: none; /* Prevent bounce on some browsers */
+  cursor: none !important; /* Keep the cursor hidden since we're using a custom cursor */
+}
+
+/* Hide the default scrollbar while keeping functionality */
+/* For Webkit browsers */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: none;
+}
+
+/* Interactive elements should still have pointer events */
+a, button, input, textarea, select, .link, [role="button"] {
+  cursor: none !important;
+}
+
+/* Maintain pointer events on hover */
+a:hover, button:hover, .link:hover, [role="button"]:hover {
+  cursor: none !important;
 }
 
 /* Critical fix for blinking: isolate the stacking context */
@@ -41,6 +66,28 @@ section {
               opacity 0.3s ease,
               box-shadow 0.3s ease;
   /* transform transition removed to avoid conflicts with smooth scrolling */
+}
+
+/* Flipping technology text styles */
+.flip-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+  margin-top: 10px;
+}
+
+.flip-item {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  transition: all 0.3s ease;
+  height: auto;
+  transform-origin: center center;
+  padding: 0 10px;
+  line-height: 1.4;
 }
 
 /* Force hardware acceleration for smoother animations */
@@ -128,7 +175,7 @@ section {
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: #0E0C15;
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
