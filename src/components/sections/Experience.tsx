@@ -11,7 +11,7 @@ export default function Experience() {
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
   
   return (
-    <section id="experience" className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-900/80">
+    <section id="experience" className="py-20">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

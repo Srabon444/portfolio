@@ -84,8 +84,8 @@ export default function Home() {
             <Suspense fallback={<Loading />}>
               <Hero />
               <About />
-              <Projects />
               <Experience />
+              <Projects />
               <Quote />
               <Skills />
               <Contact />

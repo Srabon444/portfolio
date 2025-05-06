@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function CopyrightFooter() {
   return (
-    <footer className="py-8 border-t border-gray-200 dark:border-gray-800 mt-20">
+    <footer className="py-8 border-t border-gray-200 dark:border-gray-800">
       <Container className="flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="text-sm text-gray-500 dark:text-gray-400">
           &copy; {new Date().getFullYear()} {personalInfo.name}. All rights reserved.

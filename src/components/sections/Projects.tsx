@@ -28,7 +28,7 @@ export default function Projects() {
     : projects.filter(project => project.technologies.includes(activeFilter));
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900/30">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -82,7 +82,7 @@ export default function Quote() {
   }, []);
 
   return (
-    <section className="py-16 bg-gradient-to-r from-primary/5 to-blue-500/5 dark:from-primary-foreground/5 dark:to-blue-400/5">
+    <section className="py-16">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
