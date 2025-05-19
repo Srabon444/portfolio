@@ -75,13 +75,19 @@ export default function Navigation() {
     if (targetElement) {
       // Close mobile menu first to prevent layout shifts
       setIsMenuOpen(false);
-      
-      // Add small delay for mobile menu to close before scrolling
+        // Add small delay for mobile menu to close before scrolling
       setTimeout(() => {
-        window.scrollTo({
-          top: targetElement.offsetTop - headerHeight, // Use the current header height
-          behavior: 'smooth',
-        });
+        // Use smoothScrollTo if available, otherwise fall back to standard scrollTo
+        if ((window as any).smoothScrollTo) {
+          (window as any).smoothScrollTo({
+            top: targetElement.offsetTop - headerHeight,
+          });
+        } else {
+          window.scrollTo({
+            top: targetElement.offsetTop - headerHeight,
+            behavior: 'smooth',
+          });
+        }
         
         // Update active section
         setActiveSection(targetId);
