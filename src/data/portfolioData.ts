@@ -82,7 +82,7 @@ export const skills = {
   ],
 };
 
-export const projects = [
+export const projects: Project[] = [
   {
     id: 1,
     title: "Ambufast",
