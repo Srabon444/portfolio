@@ -118,7 +118,7 @@ export const projects = [
   },
 ];
 
-export const experiences = [
+export const experiences: Experience[] = [
   {
     id: 1,
     role: "Full-Stack Software Engineer",
@@ -151,7 +151,7 @@ export const experiences = [
   },
 ];
 
-export const educations = [
+export const educations: Education[] = [
   {
     id: 1,
     degree: "B.Sc. in Computer Science & Engineering",
