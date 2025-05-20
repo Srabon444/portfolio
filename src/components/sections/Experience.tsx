@@ -63,7 +63,7 @@ export default function Experience() {
               transition={{ duration: 0.5 }}
               className="space-y-8"
             >
-              {experiences.map((experience, index) => (
+              {experiences.map((experience: ExperienceType, index) => (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -163,7 +163,7 @@ export default function Experience() {
               transition={{ duration: 0.5 }}
               className="space-y-8"
             >
-              {educations.map((education, index) => (
+              {educations.map((education: EducationType, index) => (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
