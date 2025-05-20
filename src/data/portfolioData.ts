@@ -1,3 +1,37 @@
+
+// Interfaces
+export interface Experience {
+  id: number;
+  role: string;
+  company: string;
+  location: string;
+  jobType: string;
+  isContract?: boolean;
+  period: string;
+  description: string;
+  technologies: string[];
+}
+
+export interface Education {
+  id: number;
+  degree: string;
+  institution: string;
+  period: string;
+  description: string;
+}
+
+export interface Project {
+  id: number;
+  title: string;
+  description: string;
+  technologies: string[];
+  image: string;
+  demoLink: string;
+  codeLink: string;
+  work: boolean;
+  hobby: boolean;
+}
+
 export const personalInfo = {
   name: "MD Ashraful Islam",
   title: "Full-Stack Software Engineer",
@@ -94,13 +128,13 @@ export const experiences = [
     period: "August 2024 - Present",
     description: "Built responsive, high-performance web apps using Next.js, TypeScript, and JavaScript. Led end-to-end projects, collaborating with design and backend teams. Enhanced code quality and performance through reusable components and debugging. Led when needed, coordinating with teammates and maintaining Git version control.",
     technologies: ["Next.js", "React.js", "TypeScript", "JavaScript", "Shadcn", "Tailwind CSS", "Recharts", "Zustand", "TanStack Query", "Node.js", "Prisma", "Google Maps API", "Docker", "Git"],
-  },
-  {
+  },  {
     id: 2,
     role: "Software Developer",
     company: "RISIDIO",
     location: "London, UK",
     jobType: "Remote",
+    isContract: true,
     period: "June 2024 - July 2024",
     description: "Improved functionality, performance, and readability of existing codebase. Managed data updates in Prismic CMS for efficient content population. Reduced codebase size by 15% through Tailwind CSS optimization. Debugged and resolved key issues for stable user experience.",
     technologies: ["Next.js", "React.js", "JavaScript", "TypeScript", "SASS", "Tailwind", "Prismic", "HTML", "CSS"],

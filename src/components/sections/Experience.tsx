@@ -1,6 +1,6 @@
 "use client";
 
-import { experiences, educations } from "@/data/portfolioData";
+import { experiences, educations, Experience as ExperienceType, Education as EducationType } from "@/data/portfolioData";
 import Container from "../shared/Container";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -85,8 +85,7 @@ export default function Experience() {
                     <span className="inline-block px-3 py-1.5 rounded-full text-xs font-medium bg-primary/10 dark:bg-primary/30 text-primary dark:text-white font-bold mb-3 border border-primary/20 dark:border-primary/40">
                       {experience.period}
                     </span>
-                    
-                    {/* Job type badge */}
+                      {/* Job type badge */}
                     <span className={`ml-2 inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border ${
                       experience.jobType === "Remote" 
                         ? "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-900/50 dark:text-emerald-200 dark:border-emerald-800/70" 
@@ -108,6 +107,16 @@ export default function Experience() {
                         </>
                       )}
                     </span>
+                    
+                    {/* Contract badge - shown only for entries with isContract property */}
+                    {experience.isContract && (
+                      <span className="ml-2 inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-900/50 dark:text-purple-200 dark:border-purple-800/70">
+                        <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        Contract
+                      </span>
+                    )}
                     
                     <h3 className="text-xl font-semibold mb-1 mt-2">{experience.role}</h3>
                     <div className="flex items-start">
