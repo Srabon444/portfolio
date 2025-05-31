@@ -32,13 +32,12 @@ export interface Project {
   hobby: boolean;
 }
 
-export const personalInfo = {
-  name: "MD Ashraful Islam",
+export const personalInfo = {  name: "MD Ashraful Islam",
   title: "Full-Stack Software Engineer",
   email: "ashraful.codesmith@gmail.com",
   phone: "+880 1675996598",
   location: "Dhaka, Bangladesh",
-  availability: "Open to new opportunities",
+  availability: "✦ Available for exciting opportunities ✦",
   bio: "An ambivert and lifelong learner accidentally became a software engineer (turns out, I kinda love it). I’m always chasing the next cool thing to build — from pixel-perfect UIs to backend magic. Fueled by coffee, curiosity, and late-night code sessions.",
   // bio: "Passionate full-stack software engineer with expertise in modern web technologies. I build elegant, responsive, and performant web applications that solve real-world problems.",
   gitlab: "https://gitlab.com/users/srabon444/starred",

@@ -100,11 +100,11 @@ export default function About() {
             </div>
             
             <div className="pt-4 flex justify-between items-center">
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                Currently {personalInfo.availability}
-              </p>
-              <Link
-                href="/Ashraful_Islam_Resume.pdf"
+              <p className="inline-flex items-center px-3 py-1.5 bg-gradient-to-r from-primary/20 to-primary/10 dark:from-primary/30 dark:to-primary/10 text-primary dark:text-primary-foreground rounded-full text-sm font-medium animate-pulse">
+                <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                {personalInfo.availability}
+              </p><Link
+                href="https://drive.google.com/file/d/1YOl-_xifAZeF5UYEbrZux1j4x2q2vcmj/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm font-medium"
