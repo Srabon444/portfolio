@@ -60,7 +60,7 @@ export const skills = {
     "Zustand",
     "Recharts"
   ],
-  backend: ["Node.js", "Express", "Firebase", "NestJS", "JWT", "MongoDB", "Prisma"],
+  backend: ["Node.js", "Express", "Firebase", "NestJS", "JWT", "MongoDB", "Prisma", "PostgreSQL"],
   tools: [
     // "WebStorm",
     // "VS Code",
