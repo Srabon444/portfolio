@@ -63,7 +63,7 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4">
           {Object.entries(skillIconMap).map(([skill, iconUrl], index) => (
             <motion.div
               key={skill}
@@ -72,7 +72,8 @@ export default function Skills() {
               transition={{ duration: 0.3, delay: index * 0.05 }}
               viewport={{ once: true }}
               className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md border border-primary/20 hover:border-primary transition-all hover:-translate-y-1 text-center"
-            >              <div className="h-12 flex items-center justify-center mb-2">
+            >
+              <div className="h-12 flex items-center justify-center mb-2">
                 <img
                   src={iconUrl}
                   alt={skill}
