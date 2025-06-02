@@ -24,6 +24,7 @@ body {
   height: auto; /* Let the body expand to content */
   /* Scroll behavior is handled by JS */
   overscroll-behavior-y: none; /* Prevent bounce on some browsers */
+  font-family: var(--font-montserrat-alternates), var(--font-geist-sans), sans-serif;
 }
 
 /* Hide the default scrollbar while keeping functionality */
