@@ -124,7 +124,7 @@ export const experiences: Experience[] = [
     company: "Tech Analytica Limited",
     location: "Dhaka, Bangladesh",
     jobType: "Onsite",
-    period: "August 2024 - Present",
+    period: "August 2024 - September 2025",
     description: "Built responsive, high-performance web apps using Next.js, TypeScript, and JavaScript. Led end-to-end projects, collaborating with design and backend teams. Enhanced code quality and performance through reusable components and debugging. Led when needed, coordinating with teammates and maintaining Git version control.",
     technologies: ["Next.js", "React.js", "TypeScript", "JavaScript", "Shadcn", "Tailwind CSS", "Recharts", "Zustand", "TanStack Query", "Node.js", "Prisma", "Google Maps API", "Docker", "Git"],
   },  {
@@ -155,7 +155,7 @@ export const educations: Education[] = [
     id: 1,
     degree: "B.Sc. in Computer Science & Engineering",
     institution: "UNITED INTERNATIONAL UNIVERSITY (UIU)",
-    period: "Graduated July 2021",
+    period: "Graduated August 2021",
     description: "",
   },
 ];
