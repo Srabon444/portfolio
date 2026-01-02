@@ -60,7 +60,7 @@ export const skills = {
     "Zustand",
     "Recharts"
   ],
-  backend: ["Node.js", "Express", "Firebase", "NestJS", "JWT", "MongoDB", "Prisma", "PostgreSQL"],
+  backend: ["Node.js", "Express", "Firebase", "NestJS", "JWT", "MongoDB", "Prisma", "Sequelize", "PostgreSQL"],
   tools: [
     // "WebStorm",
     // "VS Code",
@@ -110,7 +110,7 @@ export const projects: Project[] = [
     description: "An inventory management system with JWT-based authentication. Features include a dashboard for stock, categories, clients, suppliers, sales, purchases, and low-stock alerts. Manages products (add, edit, delete), client and employee records, and invoice generation.",
     technologies: ["React.js", "Axios", "Material UI", "React Firebase Hooks", "Node.js", "Express", "MongoDB", "JWT"],
     image: "/images/shipido.png",
-    demoLink: "https://shipido-inventory.web.app/",
+    demoLink: "https://jozzby-92a66.web.app/",
     codeLink: "",
     work: false,
     hobby: true,
