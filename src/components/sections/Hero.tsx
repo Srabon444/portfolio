@@ -61,7 +61,7 @@ export default function Hero() {
           
           <SmoothScrollReveal delay={0.1} duration={0.5}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
-              Hi, I&apos;m{" "}
+              Hi, I&apos;m&nbsp;
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600 dark:from-primary-foreground dark:to-blue-300">
                 {personalInfo.name}
               </span>

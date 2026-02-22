@@ -41,6 +41,7 @@ export const personalInfo = {  name: "MD Ashraful Islam",
   bio: "An ambivert and lifelong learner accidentally became a software engineer (turns out, I kinda love it). I’m always chasing the next cool thing to build — from pixel-perfect UIs to backend magic. Fueled by coffee, curiosity, and late-night code sessions.",
   // bio: "Passionate full-stack software engineer with expertise in modern web technologies. I build elegant, responsive, and performant web applications that solve real-world problems.",
   gitlab: "https://gitlab.com/users/srabon444/starred",
+  github: "https://github.com/Srabon444",
   linkedin: "https://www.linkedin.com/in/ashraful-islam-rabby/",
 };
 
@@ -120,6 +121,16 @@ export const projects: Project[] = [
 export const experiences: Experience[] = [
   {
     id: 1,
+    role: "Software Engineer II",
+    company: "Techzu Ichicode Pte Ltd",
+    location: "Singapore",
+    jobType: "Remote",
+    period: "November 2025 – Present",
+    description: "Developing a robust and scalable ERP solution for a Fortune 500 client, contributing to end-to-end procurement and supply chain modules. Built and maintained complex data-driven workflows covering the full procurement lifecycle — from request initiation and approval flows to goods receipt and reconciliation processes. Collaborated closely with stakeholders, frontend, and backend teams to ensure on-schedule delivery and alignment with business requirements. Actively maintained and improved the existing codebase through systematic refactoring, bug resolution, and targeted feature enhancements.",
+    technologies: ["React.js", "TypeScript", "JavaScript", "Ant Design", "RESTful APIs", "Node.js", "Express.js", "PostgreSQL", "Sequelize", "Git"],
+  },
+  {
+    id: 2,
     role: "Full-Stack Software Engineer",
     company: "Tech Analytica Limited",
     location: "Dhaka, Bangladesh",
@@ -128,7 +139,7 @@ export const experiences: Experience[] = [
     description: "Built responsive, high-performance web apps using Next.js, TypeScript, and JavaScript. Led end-to-end projects, collaborating with design and backend teams. Enhanced code quality and performance through reusable components and debugging. Led when needed, coordinating with teammates and maintaining Git version control.",
     technologies: ["Next.js", "React.js", "TypeScript", "JavaScript", "Shadcn", "Tailwind CSS", "Recharts", "Zustand", "TanStack Query", "Node.js", "Prisma", "Google Maps API", "Docker", "Git"],
   },  {
-    id: 2,
+    id: 3,
     role: "Software Developer",
     company: "RISIDIO",
     location: "London, UK",
@@ -139,7 +150,7 @@ export const experiences: Experience[] = [
     technologies: ["Next.js", "React.js", "JavaScript", "TypeScript", "SASS", "Tailwind", "Prismic", "HTML", "CSS"],
   },
   {
-    id: 3,
+    id: 4,
     role: "Jr. Full-Stack Developer",
     company: "GALAXY-NET BD",
     location: "Dhaka, Bangladesh",
