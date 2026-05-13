@@ -2,118 +2,121 @@
 
 import { skills } from "@/data/portfolioData";
 import Container from "../shared/Container";
-import { motion } from "framer-motion";
-import Image from "next/image";
+import SmoothScrollReveal from "../shared/SmoothScrollReveal";
+
+const skillIconMap: Record<string, string> = {
+  "Next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+  "React.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  "TypeScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  "JavaScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  "HTML": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+  "CSS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+  "Tailwind": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+  "SASS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",
+  "Node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  "Express": "https://www.vectorlogo.zone/logos/expressjs/expressjs-ar21.svg",
+  "NestJS": "https://nestjs.com/img/logo-small.svg",
+  "PostgreSQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  "MongoDB": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  "Firebase": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+  "GitHub": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+  "Docker": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  "Figma": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+  "Shadcn": "https://avatars.githubusercontent.com/u/124599?s=200&v=4",
+  "Ant Design": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/antdesign/antdesign-original.svg",
+  "Zustand": "https://zustand-demo.pmnd.rs/favicon.ico",
+  "TanStack Query": "https://avatars.githubusercontent.com/u/72518640?s=200&v=4",
+  "Zod": "https://zod.dev/logo.svg",
+  "Prisma": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
+  "Recharts": "https://avatars.githubusercontent.com/u/32576418?s=200&v=4",
+  "Vercel": "https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png",
+  "JWT": "https://cdn.worldvectorlogo.com/logos/jwt-3.svg",
+  "Digital Ocean": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/digitalocean/digitalocean-original.svg",
+  "Google Maps": "https://cdn.worldvectorlogo.com/logos/google-maps-2020-icon.svg",
+  "Prismic CMS": "https://europe1.discourse-cdn.com/flex013/uploads/prismic/original/2X/7/7086bbd2c3e421b63d3bed1807673482ca9674e4.png",
+  "Sequelize": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sequelize/sequelize-original.svg",
+};
+
+function SkillIcon({ name }: { name: string }) {
+  const url = skillIconMap[name];
+  if (!url) {
+    return (
+      <div className="w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center text-primary text-xs font-bold">
+        {name.charAt(0)}
+      </div>
+    );
+  }
+  return (
+    <img
+      src={url}
+      alt={name}
+      className="w-8 h-8 object-contain"
+      loading="lazy"
+      onError={(e) => {
+        const t = e.target as HTMLImageElement;
+        t.onerror = null;
+        t.style.display = "none";
+        const fallback = document.createElement("div");
+        fallback.className =
+          "w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center text-primary text-xs font-bold";
+        fallback.textContent = name.charAt(0);
+        t.parentElement?.appendChild(fallback);
+      }}
+    />
+  );
+}
+
+const categories = [
+  { label: "Frontend", skills: skills.frontend },
+  { label: "Backend", skills: skills.backend },
+  { label: "Tools & DevOps", skills: skills.tools },
+];
 
 export default function Skills() {
-  const skillCategories = [
-    { title: "Frontend Development", skills: skills.frontend },
-    { title: "Backend Development", skills: skills.backend },
-    { title: "Tools & Technologies", skills: skills.tools },
-  ];
-    // Skills with their respective icons - using more reliable icon sources
-  const skillIconMap: Record<string, string> = {
-    "Next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-    "React.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-    "TypeScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-    "JavaScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-    "HTML": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-    "CSS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-    "Tailwind": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
-    "SASS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",    "Node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-    "Express": "https://www.vectorlogo.zone/logos/expressjs/expressjs-ar21.svg",
-    "NestJS": "https://nestjs.com/img/logo-small.svg",
-    "PostgreSQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-    "MongoDB": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-    "Firebase": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
-    "Git": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-    "GitHub": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
-    // "VS Code": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
-    "Docker": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-    "Figma": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
-    "Shadcn": "https://avatars.githubusercontent.com/u/124599?s=200&v=4",
-    "Zustand": "https://zustand-demo.pmnd.rs/favicon.ico",
-    "TanStack Query": "https://tanstack.com/assets/logo-color-100w-br5_Ikqp.png",
-    "Prisma": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
-    "Recharts": "https://recharts.org/en-US/img/logo.svg",
-    // "Heroku": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original.svg",
-    "Vercel": "https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png",
-    "JWT": "https://cdn.worldvectorlogo.com/logos/jwt-3.svg",
-    "Digital Ocean": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/digitalocean/digitalocean-original.svg",
-    "Google Maps": "https://cdn.worldvectorlogo.com/logos/google-maps-2020-icon.svg",
-    "Postman": "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg",
-    "Prismic CMS": "https://europe1.discourse-cdn.com/flex013/uploads/prismic/original/2X/7/7086bbd2c3e421b63d3bed1807673482ca9674e4.png",
-    // Add more skills with their respective icon URLs as needed
-  };
-
   return (
-    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-900/30">
+    <section id="skills" className="py-24 bg-background">
       <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mb-12 text-center"
-        >
-          <h2 className="text-3xl font-bold mb-4">Tech Stacks</h2>
-          <div className="h-1 w-24 bg-primary dark:bg-primary mx-auto mb-6"></div>
-          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Tools & Technologies I Work With
+        <SmoothScrollReveal className="mb-16">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-px w-10 bg-primary flex-shrink-0" />
+            <span className="text-xs font-semibold tracking-widest uppercase text-primary">
+              Skills
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">Tech Stack</h2>
+          <p className="text-muted-foreground text-[15px] max-w-xl">
+            Tools &amp; technologies I work with on a daily basis.
           </p>
-        </motion.div>
+        </SmoothScrollReveal>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4">
-          {Object.entries(skillIconMap).map(([skill, iconUrl], index) => (
-            <motion.div
-              key={skill}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
-              viewport={{ once: true }}
-              className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md border border-primary/20 hover:border-primary transition-all hover:-translate-y-1 text-center"
-            >
-              <div className="h-12 flex items-center justify-center mb-2">
-                <img
-                  src={iconUrl}
-                  alt={skill}
-                  className="max-h-full max-w-full object-contain"
-                  onError={(e) => {
-                    // Fallback if image fails to load
-                    const target = e.target as HTMLImageElement;
-                    target.onerror = null;
-                    // Replace with a generic tech icon or first letter of skill
-                    target.parentElement!.innerHTML = `<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span class="text-lg font-bold text-primary">${skill.charAt(0)}</span>
-                    </div>`;
-                  }}
-                />
-              </div>
-              <p className="text-sm text-primary dark:text-primary/80">{skill}</p>
-            </motion.div>
-          ))}
-
-          {/* For skills without icons, display them in a grid */}
-          {[...skills.frontend, ...skills.backend, ...skills.tools]
-            .filter(skill => !skillIconMap[skill])
-            .map((skill, index) => (
-              <motion.div
-                key={`no-icon-${skill}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: (Object.keys(skillIconMap).length + index) * 0.05 }}
-                viewport={{ once: true }}
-                className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md border border-primary/20 hover:border-primary transition-all hover:-translate-y-1 text-center"
-              >
-                <div className="h-12 flex items-center justify-center mb-2">
-                  {/* Placeholder for skills without icons */}
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <span className="text-xl text-primary">💻</span>
-                  </div>
+        <div className="space-y-12">
+          {categories.map((category, catIndex) => (
+            <SmoothScrollReveal key={category.label} delay={catIndex * 0.1} duration={0.5}>
+              <div>
+                <div className="flex items-center gap-3 mb-5">
+                  <h3 className="text-sm font-semibold text-foreground">{category.label}</h3>
+                  <div className="flex-1 h-px bg-border" />
+                  <span className="text-xs text-muted-foreground">{category.skills.length}</span>
                 </div>
-                <p className="text-sm text-primary dark:text-primary/80">{skill}</p>
-              </motion.div>
-            ))}
+                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2.5">
+                  {category.skills.map((skill, index) => (
+                    <SmoothScrollReveal
+                      key={skill}
+                      delay={catIndex * 0.1 + index * 0.025}
+                      duration={0.35}
+                    >
+                      <div className="bg-card rounded-xl p-3 border border-border hover:border-primary/30 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 text-center flex flex-col items-center gap-2">
+                        <SkillIcon name={skill} />
+                        <p className="text-[11px] text-muted-foreground font-medium leading-tight">
+                          {skill}
+                        </p>
+                      </div>
+                    </SmoothScrollReveal>
+                  ))}
+                </div>
+              </div>
+            </SmoothScrollReveal>
+          ))}
         </div>
       </Container>
     </section>
