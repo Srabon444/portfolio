@@ -35,7 +35,8 @@ export default function RootLayout({
     >
       <head>
         <meta name="apple-mobile-web-app-title" content="Ashraful Islam" />
-      </head>      <body
+      </head>
+      <body
         className={`${GeistSans.variable} ${GeistMono.variable} ${montserratAlternates.variable} font-sans antialiased`}
         suppressHydrationWarning
       >

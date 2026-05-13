@@ -2,54 +2,46 @@
 
 import { useState, useEffect } from "react";
 import Container from "../shared/Container";
-import { motion } from "framer-motion";
+import SmoothScrollReveal from "../shared/SmoothScrollReveal";
 import { inspirationalQuotes, Quote as QuoteType } from "@/data/quotesData";
 
 export default function Quote() {
-  const [quote, setQuote] = useState<QuoteType>(inspirationalQuotes[Math.floor(Math.random() * inspirationalQuotes.length)]);
-
-  const getRandomQuote = () => {
-    const randomIndex = Math.floor(Math.random() * inspirationalQuotes.length);
-    setQuote(inspirationalQuotes[randomIndex]);
-  };
+  const [quote, setQuote] = useState<QuoteType>(inspirationalQuotes[0]);
 
   useEffect(() => {
-    // Set a random quote on initial load
-    getRandomQuote();
+    setQuote(inspirationalQuotes[Math.floor(Math.random() * inspirationalQuotes.length)]);
   }, []);
 
+  const getRandomQuote = () => {
+    let next: QuoteType;
+    do {
+      next = inspirationalQuotes[Math.floor(Math.random() * inspirationalQuotes.length)];
+    } while (next.text === quote.text && inspirationalQuotes.length > 1);
+    setQuote(next);
+  };
+
   return (
-    <section className="py-16">
+    <section className="py-20 bg-primary/5 border-y border-primary/10">
       <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-center"
-        >
-          <>
-            <svg 
-              className="w-8 h-8 text-primary dark:text-blue-300 mx-auto mb-4" 
-              fill="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-            </svg>
-            <p className="text-xl md:text-2xl font-medium mb-4 leading-relaxed">
-              {quote.text}
-            </p>
-            <p className="text-gray-600 dark:text-gray-400">
-              — {quote.author}
-            </p>
-            <button 
-              onClick={getRandomQuote}
-              className="mt-6 px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-md text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-            >
-              New Quote
-            </button>
-          </>
-        </motion.div>
+        <SmoothScrollReveal className="max-w-2xl mx-auto text-center">
+          <svg
+            className="w-8 h-8 text-primary/40 mx-auto mb-6"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <p className="text-lg md:text-xl font-medium mb-4 leading-relaxed text-foreground">
+            {quote.text}
+          </p>
+          <p className="text-sm text-muted-foreground mb-6">— {quote.author}</p>
+          <button
+            onClick={getRandomQuote}
+            className="text-xs font-medium text-muted-foreground hover:text-primary transition-colors px-4 py-2 border border-border rounded-lg hover:border-primary/40"
+          >
+            New Quote
+          </button>
+        </SmoothScrollReveal>
       </Container>
     </section>
   );
