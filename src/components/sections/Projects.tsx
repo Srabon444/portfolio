@@ -3,6 +3,7 @@
 import { projects } from "@/data/portfolioData";
 import Container from "../shared/Container";
 import SmoothScrollReveal from "../shared/SmoothScrollReveal";
+import SectionHeader from "../shared/SectionHeader";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
@@ -19,17 +20,13 @@ export default function Projects() {
   return (
     <section id="projects" className="py-24 bg-muted">
       <Container>
-        <SmoothScrollReveal className="mb-16">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-10 bg-primary flex-shrink-0" />
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary">
-              Projects
-            </span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">What I&apos;ve Built</h2>
-          <p className="text-muted-foreground text-[15px] max-w-xl">
-            A selection of projects — from production systems to personal builds.
-          </p>
+        <SmoothScrollReveal>
+          <SectionHeader
+            eyebrow="Projects"
+            title="What I've Built"
+            bgWord="PROJECTS"
+            description="A selection of projects — from production systems to personal builds."
+          />
         </SmoothScrollReveal>
 
         {/* Filter pills */}

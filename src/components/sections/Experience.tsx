@@ -8,6 +8,7 @@ import {
 } from "@/data/portfolioData";
 import Container from "../shared/Container";
 import SmoothScrollReveal from "../shared/SmoothScrollReveal";
+import SectionHeader from "../shared/SectionHeader";
 import { useState } from "react";
 import ContactButton from "../shared/ContactButton";
 
@@ -17,17 +18,13 @@ export default function Experience() {
   return (
     <section id="experience" className="py-24 bg-background">
       <Container>
-        <SmoothScrollReveal className="mb-16">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-10 bg-primary flex-shrink-0" />
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary">
-              Experience
-            </span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">Career Journey</h2>
-          <p className="text-muted-foreground text-[15px] max-w-xl">
-            My professional history and educational background.
-          </p>
+        <SmoothScrollReveal>
+          <SectionHeader
+            eyebrow="Experience"
+            title="Career Journey"
+            bgWord="EXPERIENCE"
+            description="My professional history and educational background."
+          />
         </SmoothScrollReveal>
 
         {/* Tab switcher */}
