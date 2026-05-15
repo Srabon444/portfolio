@@ -3,6 +3,7 @@
 import { personalInfo } from "@/data/portfolioData";
 import Container from "../shared/Container";
 import SmoothScrollReveal from "../shared/SmoothScrollReveal";
+import SectionHeader from "../shared/SectionHeader";
 import { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import { z } from "zod";
@@ -120,17 +121,13 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24 bg-muted">
       <Container>
-        <SmoothScrollReveal className="mb-16">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-10 bg-primary flex-shrink-0" />
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary">
-              Contact
-            </span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">Get In Touch</h2>
-          <p className="text-muted-foreground text-[15px] max-w-xl">
-            Have a project in mind or want to chat? My inbox is always open.
-          </p>
+        <SmoothScrollReveal>
+          <SectionHeader
+            eyebrow="Contact"
+            title="Get In Touch"
+            bgWord="CONTACT"
+            description="Have a project in mind or want to chat? My inbox is always open."
+          />
         </SmoothScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-5xl mx-auto">
