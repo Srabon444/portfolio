@@ -16,7 +16,7 @@ export default function Experience() {
   const [activeTab, setActiveTab] = useState<"work" | "education">("work");
 
   return (
-    <section id="experience" className="py-24 bg-background">
+    <section id="experience" className="pt-16 pb-10 md:pt-24 md:pb-14 bg-background">
       <Container>
         <SmoothScrollReveal>
           <SectionHeader
@@ -28,7 +28,7 @@ export default function Experience() {
         </SmoothScrollReveal>
 
         {/* Tab switcher */}
-        <div className="flex justify-center mb-12">
+        <div className="flex justify-center mb-8 md:mb-12">
           <div className="inline-flex bg-muted rounded-lg p-1 gap-1">
             {(["work", "education"] as const).map((tab) => (
               <button
@@ -57,7 +57,7 @@ export default function Experience() {
                     {/* Timeline dot */}
                     <div className="absolute left-[-5px] top-5 w-2.5 h-2.5 rounded-full bg-primary border-2 border-background" />
 
-                    <div className="bg-card rounded-xl p-6 border border-border hover:border-primary/30 hover:shadow-sm transition-all duration-200">
+                    <div className="bg-card rounded-xl p-4 sm:p-6 border border-border hover:border-primary/30 hover:shadow-sm transition-all duration-200">
                       <div className="flex flex-wrap items-center gap-2 mb-3">
                         <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-primary/8 text-primary border border-primary/15">
                           {exp.period}
@@ -85,9 +85,14 @@ export default function Experience() {
                         <span className="text-xs text-muted-foreground/80">{exp.location}</span>
                       </div>
 
-                      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                        {exp.description}
-                      </p>
+                      <ul className="space-y-1.5 mb-4">
+                        {exp.description.map((point, i) => (
+                          <li key={i} className="flex gap-2 text-sm text-muted-foreground leading-relaxed">
+                            <span className="text-primary flex-shrink-0 mt-[3px] leading-none">▸</span>
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
 
                       <div className="flex flex-wrap gap-1.5">
                         {exp.technologies.map((tech) => (
@@ -114,7 +119,7 @@ export default function Experience() {
                     <div className="absolute left-0 top-0 bottom-0 w-px bg-border" />
                     <div className="absolute left-[-5px] top-5 w-2.5 h-2.5 rounded-full bg-primary border-2 border-background" />
 
-                    <div className="bg-card rounded-xl p-6 border border-border hover:border-primary/30 hover:shadow-sm transition-all duration-200">
+                    <div className="bg-card rounded-xl p-4 sm:p-6 border border-border hover:border-primary/30 hover:shadow-sm transition-all duration-200">
                       <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-primary/8 text-primary border border-primary/20 inline-block mb-3">
                         {edu.period}
                       </span>
@@ -146,7 +151,7 @@ export default function Experience() {
           )}
 
           {/* CTA */}
-          <SmoothScrollReveal delay={0.1} duration={0.5} className="mt-14">
+          <SmoothScrollReveal delay={0.1} duration={0.5} className="mt-8 md:mt-10">
             <div className="text-center bg-muted rounded-2xl p-8 border border-border">
               <h4 className="text-lg font-semibold mb-2">Let&apos;s Work Together</h4>
               <p className="text-sm text-muted-foreground mb-5 max-w-md mx-auto">
