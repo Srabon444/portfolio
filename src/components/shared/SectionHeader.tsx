@@ -14,17 +14,17 @@ export default function SectionHeader({
   center = false,
 }: SectionHeaderProps) {
   return (
-    <div className={`relative overflow-hidden mb-16 ${center ? "text-center" : ""}`}>
+    <div className={`relative overflow-hidden mb-10 md:mb-16 ${center ? "text-center" : ""}`}>
       {/* Large faded background word */}
       <span
         aria-hidden="true"
-        className="absolute left-1/2 -translate-x-1/2 top-0 text-[4rem] md:text-[6rem] lg:text-[8rem] font-black uppercase tracking-[0.2em] leading-none text-foreground/[0.05] select-none pointer-events-none whitespace-nowrap"
+        className="absolute left-1/2 -translate-x-1/2 top-0 text-[2.5rem] sm:text-[3.5rem] md:text-[5.5rem] lg:text-[7.5rem] font-black uppercase tracking-[0.2em] leading-none text-foreground/[0.05] select-none pointer-events-none whitespace-nowrap"
       >
         {bgWord}
       </span>
 
       {/* Foreground heading content */}
-      <div className="relative z-10 pt-10 md:pt-14">
+      <div className="relative z-10 pt-8 md:pt-12">
         {center ? (
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="h-px w-10 bg-primary flex-shrink-0" />
@@ -41,7 +41,7 @@ export default function SectionHeader({
             </span>
           </div>
         )}
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">{title}</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3">{title}</h2>
         {description && (
           <p
             className={`text-muted-foreground text-[15px] ${

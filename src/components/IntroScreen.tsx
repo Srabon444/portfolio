@@ -3,13 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 
 const allTechnologies = [
+  "React.js",
   "Next.js",
   "TypeScript",
-  "Tailwind",
   "Node.js",
-  "Express",
   "NestJS",
-  "Prisma",
+  "PostgreSQL",
+  "Full-Stack",
 ];
 
 const IntroScreen = ({ onComplete }: { onComplete: () => void }) => {

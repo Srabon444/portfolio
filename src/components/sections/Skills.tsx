@@ -56,7 +56,7 @@ const categories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 bg-background">
+    <section id="skills" className="py-16 md:py-24 bg-background">
       <Container>
         <SmoothScrollReveal>
           <SectionHeader

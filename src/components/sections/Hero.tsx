@@ -29,14 +29,14 @@ export default function Hero() {
 
   return (
     <section id="home" className="min-h-screen flex items-center pt-20 pb-16">
-      <Container className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
+      <Container className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-10">
         {/* Text content */}
-        <div className="text-center lg:text-left max-w-2xl w-full">
+        <div className="text-center lg:text-left flex-1 min-w-0">
           <SmoothScrollReveal delay={0.0} duration={0.5}>
             <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-3">
               Hi, I&apos;m
             </p>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-foreground mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-foreground mb-6">
               {personalInfo.name}
             </h1>
           </SmoothScrollReveal>
@@ -51,7 +51,7 @@ export default function Hero() {
           </SmoothScrollReveal>
 
           <SmoothScrollReveal delay={0.24} duration={0.5}>
-            <div className="space-y-4 text-[15px] text-muted-foreground mb-6 leading-relaxed max-w-lg mx-auto lg:mx-0">
+            <div className="space-y-4 text-sm sm:text-[15px] text-muted-foreground mb-6 leading-relaxed max-w-lg mx-auto lg:mx-0">
               <p>
                 With{" "}
                 <strong className="text-foreground font-semibold">3+ years of experience</strong>,
@@ -78,16 +78,16 @@ export default function Hero() {
                 opportunities worldwide.
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-2.5 mb-8 max-w-lg mx-auto lg:mx-0">
+            <div className="grid grid-cols-2 gap-2 mb-8 max-w-lg mx-auto lg:mx-0">
               {[
                 { label: "Location", value: personalInfo.location },
                 { label: "Availability", value: "Open to opportunities" },
                 { label: "Focus", value: "Full-Stack Engineering" },
                 { label: "Approach", value: "Product-minded" },
               ].map(({ label, value }) => (
-                <div key={label} className="bg-muted rounded-lg px-4 py-3 border border-border">
-                  <p className="text-xs text-muted-foreground uppercase tracking-wide mb-0.5">{label}</p>
-                  <p className="text-sm font-medium text-foreground">{value}</p>
+                <div key={label} className="bg-muted rounded-lg px-3 py-2 border border-border">
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-wide mb-0.5">{label}</p>
+                  <p className="text-xs font-medium text-foreground">{value}</p>
                 </div>
               ))}
             </div>

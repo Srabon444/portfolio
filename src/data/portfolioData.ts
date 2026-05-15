@@ -8,7 +8,7 @@ export interface Experience {
   jobType: string;
   isContract?: boolean;
   period: string;
-  description: string;
+  description: string[];
   technologies: string[];
 }
 
@@ -156,7 +156,12 @@ export const experiences: Experience[] = [
     location: "Singapore",
     jobType: "Remote",
     period: "November 2025 – Present",
-    description: "Developing a robust ERP solution for a Fortune 500 client. Architected a two-phase paginated query strategy for the Item Master API, replacing multi-table JOINs with parallel sub-queries — reducing response time from 8s to ~225ms (97% improvement). Built a full-stack Purchasing module spanning 6 document types (Purchase Request, Purchase Order, GRPO, AP Invoice, AP Credit Memo, Goods Return) with backend journal entry generation that reflects directly in financial statements. Designed Purchase Reporting across 5 document types with multi-dimensional filtering and Excel export, built as a shared config-driven engine reused across all report variants.",
+    description: [
+      "Developing a comprehensive ERP system for a Fortune 500 client, architecting scalable modules across procurement, finance, and inventory.",
+      "Engineered a two-phase paginated query strategy for the Item Master API — replaced multi-table JOINs with parallel sub-queries, cutting response time from 8s to ~225ms (97% improvement).",
+      "Built a full-stack Purchasing module spanning 6 document types (Purchase Request, Purchase Order, GRPO, AP Invoice, AP Credit Memo, Goods Return) with automated journal entry generation reflected in financial statements.",
+      "Designed a config-driven Purchase Reporting engine across 5 document types with multi-dimensional filtering and Excel export — reused as a shared architectural pattern across all report variants.",
+    ],
     technologies: ["React.js", "TypeScript", "JavaScript", "Ant Design", "Node.js", "Express.js", "PostgreSQL", "Sequelize", "Docker", "Git"],
   },
   {
@@ -166,17 +171,28 @@ export const experiences: Experience[] = [
     location: "Dhaka, Bangladesh",
     jobType: "Onsite",
     period: "August 2024 – September 2025",
-    description: "Developed Bangladesh's largest ambulance booking platform, integrating Google Maps SDK with optimized routing. Built the complete order lifecycle (booking → dispatch → billing → payment), improving operational efficiency by 40% through a custom CMS. Reduced API call overhead by 25% via enhanced data handling and caching. Boosted SEO performance resulting in 35% faster page loads. Supervised and mentored a junior developer. Also built a SEO-optimized landscaping booking system that cut inquiries by 50% and boosted engagement. Maintained a 94% on-schedule project delivery rate.",
-    technologies: ["Next.js", "React.js", "TypeScript", "JavaScript", "Shadcn", "Tailwind CSS", "Recharts", "Zod", "Zustand", "TanStack Query", "NestJS", "Prisma", "Google Maps API", "Docker", "Git"],
-  },  {
+    description: [
+      "Led development of Bangladesh's largest ambulance booking platform — integrated Google Maps SDK with real-time routing and built the full order lifecycle (booking → dispatch → billing → payment).",
+      "Built a custom CMS for admins and call operators to manage bookings, payments, and billing operations, improving overall operational efficiency by 40%.",
+      "Delivered a fully responsive landscaping service booking platform with a dynamic form builder and admin CMS, reducing missed client inquiries by 50%.",
+      "Reduced API call overhead by 25% through strategic caching and data handling; boosted SEO performance resulting in 35% faster page loads.",
+      "Supervised and mentored a junior developer; maintained a 94% on-schedule project delivery rate across all engagements.",
+    ],
+    technologies: ["Next.js", "React.js", "TypeScript", "JavaScript", "Shadcn", "Tailwind CSS", "Recharts", "Zustand", "TanStack Query", "NestJS", "Prisma", "Google Maps API", "Docker", "Git"],
+  },
+  {
     id: 3,
     role: "Software Developer",
     company: "RISIDIO",
     location: "London, UK",
     jobType: "Remote",
     isContract: true,
-    period: "June 2024 - July 2024",
-    description: "Improved functionality, performance, and readability of existing codebase. Managed data updates in Prismic CMS for efficient content population. Reduced codebase size by 15% through Tailwind CSS optimization. Debugged and resolved key issues for stable user experience.",
+    period: "June 2024 – July 2024",
+    description: [
+      "Improved functionality, performance, and code readability of an existing Next.js codebase for a UK-based blockchain and digital collectibles client.",
+      "Reduced overall codebase size by 15% through Tailwind CSS refactoring, component consolidation, and elimination of redundant styles.",
+      "Managed content population and data updates via Prismic CMS; resolved critical bugs ensuring a stable, production-ready user experience.",
+    ],
     technologies: ["Next.js", "React.js", "JavaScript", "TypeScript", "SASS", "Tailwind", "Prismic", "HTML", "CSS"],
   },
   {
@@ -186,7 +202,12 @@ export const experiences: Experience[] = [
     location: "Dhaka, Bangladesh",
     jobType: "Onsite",
     period: "January 2023 – March 2024",
-    description: "Built scalable, responsive front-end applications using React.js and Tailwind. Developed back-end APIs with Node.js, Express, MongoDB, and Firebase. Conducted manual testing and introduced Agile practices that reduced development time by 25%. Collaborated with UX and development teams for design alignment.",
+    description: [
+      "Built scalable, responsive front-end interfaces using React.js, Tailwind CSS, and TypeScript across multiple client projects.",
+      "Developed RESTful backend APIs with Node.js, Express, MongoDB, and Firebase — handling authentication, data management, and third-party integrations.",
+      "Introduced Agile practices and sprint workflows to the team, reducing development cycle time by 25% and improving delivery predictability.",
+      "Collaborated closely with UX designers to ensure pixel-accurate implementation and consistent cross-browser design delivery.",
+    ],
     technologies: ["React.js", "JavaScript", "TypeScript", "Bootstrap", "Node.js", "Express", "MongoDB", "Firebase", "Tailwind"],
   },
 ];

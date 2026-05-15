@@ -119,7 +119,7 @@ export default function Contact() {
     }`;
 
   return (
-    <section id="contact" className="py-24 bg-muted">
+    <section id="contact" className="py-16 md:py-24 bg-muted">
       <Container>
         <SmoothScrollReveal>
           <SectionHeader
@@ -130,7 +130,7 @@ export default function Contact() {
           />
         </SmoothScrollReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 max-w-5xl mx-auto">
           {/* Contact info */}
           <SmoothScrollReveal direction="left" delay={0.1} className="lg:col-span-2 space-y-6">
             <div className="space-y-4">
