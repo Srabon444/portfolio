@@ -20,6 +20,7 @@ export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const menuRef = useRef<HTMLDivElement>(null);
+  const toggleButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,7 +43,10 @@ export default function Navigation() {
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+      if (
+        menuRef.current && !menuRef.current.contains(e.target as Node) &&
+        toggleButtonRef.current && !toggleButtonRef.current.contains(e.target as Node)
+      ) {
         setIsMenuOpen(false);
       }
     };
@@ -126,6 +130,7 @@ export default function Navigation() {
         <div className="flex items-center gap-3 md:hidden">
           <ThemeToggle />
           <button
+            ref={toggleButtonRef}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
