@@ -14,9 +14,8 @@ const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 const roles = [
   "ERP Specialist",
+  "Full-Stack Engineer",
   "Software Engineer",
-  "Full-Stack Developer",
-  "React Engineer",
 ];
 
 function useTypewriter(texts: string[], typingSpeed = 80, eraseSpeed = 45, pauseMs = 2000) {
@@ -60,13 +59,16 @@ export default function Hero() {
         {/* Text content */}
         <div className="text-center lg:text-left flex-1 min-w-0">
           <SmoothScrollReveal delay={0.0} duration={0.5}>
-            {/* Available badge */}
-            <div className="flex items-center gap-2 justify-center lg:justify-start mb-4">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
-              </span>
-              <span className="text-xs font-medium text-green-600 dark:text-green-400 tracking-wide">
+            {/* Available badge — oval pill */}
+            <div className="flex items-center justify-center lg:justify-start mb-5">
+              <span className="inline-flex w-fit items-center gap-2 rounded-full border border-border/50 bg-card/80 px-4 py-1.5 text-xs font-medium text-muted-foreground shadow-sm backdrop-blur-sm">
+                <span className="relative flex h-2 w-2 flex-shrink-0">
+                  <span
+                    className="absolute inline-flex h-full w-full rounded-full bg-emerald-400"
+                    style={{ animation: "pulse-ring 1.8s ease-out infinite" }}
+                  />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                </span>
                 Available for opportunities
               </span>
             </div>
