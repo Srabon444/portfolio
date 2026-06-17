@@ -10,8 +10,8 @@ import { useScrollY } from "@/hooks/useScrollY";
 
 const navLinks = [
   { name: "Home", href: "#home", sectionId: "home" },
-  { name: "Skills", href: "#skills", sectionId: "skills" },
   { name: "Experience", href: "#experience", sectionId: "experience" },
+  { name: "Skills", href: "#skills", sectionId: "skills" },
   { name: "Projects", href: "#projects", sectionId: "projects" },
   { name: "Contact", href: "#contact", sectionId: "contact" },
 ];

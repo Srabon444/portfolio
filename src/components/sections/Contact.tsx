@@ -24,7 +24,7 @@ const contactDetails = [
     value: personalInfo.email,
     href: `mailto:${personalInfo.email}`,
     icon: (
-      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
       </svg>
     ),
@@ -34,7 +34,7 @@ const contactDetails = [
     value: personalInfo.phone,
     href: `tel:${personalInfo.phone}`,
     icon: (
-      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
       </svg>
     ),
@@ -44,7 +44,7 @@ const contactDetails = [
     value: personalInfo.location,
     href: undefined,
     icon: (
-      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
         <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
       </svg>
@@ -113,22 +113,20 @@ export default function Contact() {
         <SmoothScrollReveal>
           <SectionHeader
             eyebrow="Get In Touch"
-            bgWord="CONTACT"
+            title="Contact"
             description="Have a project in mind or want to chat? My inbox is always open."
           />
         </SmoothScrollReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-5xl mx-auto">
           {/* Contact info */}
-          <SmoothScrollReveal direction="left" delay={0.1} className="lg:col-span-2 space-y-6">
-            <div className="space-y-4">
+          <SmoothScrollReveal direction="left" delay={0.1} className="lg:col-span-2">
+            <div className="space-y-5 mb-8">
               {contactDetails.map(({ label, value, href, icon }) => (
                 <div key={label} className="flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0 mt-0.5">
-                    {icon}
-                  </div>
+                  <span className="text-primary mt-0.5 flex-shrink-0">{icon}</span>
                   <div>
-                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-0.5">{label}</p>
+                    <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-0.5">{label}</p>
                     {href ? (
                       <a href={href} className="text-sm text-foreground hover:text-primary transition-colors">
                         {value}
@@ -141,8 +139,8 @@ export default function Contact() {
               ))}
             </div>
 
-            <div>
-              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">Find me on</p>
+            <div className="border-t border-border pt-6">
+              <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-3">Find me on</p>
               <div className="flex gap-2">
                 {socialLinks.map(({ href, label, Icon }) => (
                   <a
@@ -151,7 +149,7 @@ export default function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="p-2.5 rounded-lg bg-card border border-border text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors"
+                    className="p-2.5 rounded-lg border border-border text-muted-foreground hover:text-primary hover:border-primary/30 bg-background transition-colors"
                   >
                     <Icon />
                   </a>
@@ -161,29 +159,29 @@ export default function Contact() {
           </SmoothScrollReveal>
 
           {/* Form */}
-          <SmoothScrollReveal direction="right" delay={0.2} className="lg:col-span-3">
+          <SmoothScrollReveal direction="right" delay={0.2} className="lg:col-span-3 lg:border-l lg:border-border lg:pl-10">
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1.5">Name</label>
+                  <label htmlFor="name" className="block text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">Name</label>
                   <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className={inputClass("name")} placeholder="Your name" />
                   {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1.5">Email</label>
+                  <label htmlFor="email" className="block text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">Email</label>
                   <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className={inputClass("email")} placeholder="you@example.com" />
                   {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
                 </div>
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1.5">Subject</label>
+                <label htmlFor="subject" className="block text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">Subject</label>
                 <input type="text" id="subject" name="subject" value={formData.subject} onChange={handleChange} className={inputClass("subject")} placeholder="What's this about?" />
                 {errors.subject && <p className="mt-1 text-xs text-red-500">{errors.subject}</p>}
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1.5">Message</label>
+                <label htmlFor="message" className="block text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">Message</label>
                 <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={5} className={inputClass("message")} placeholder="Your message..." />
                 {errors.message && <p className="mt-1 text-xs text-red-500">{errors.message}</p>}
               </div>

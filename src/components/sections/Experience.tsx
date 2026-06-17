@@ -15,12 +15,12 @@ export default function Experience() {
   const [activeTab, setActiveTab] = useState<"work" | "education">("work");
 
   return (
-    <section id="experience" className="pt-16 pb-10 md:pt-24 md:pb-14 bg-background">
+    <section id="experience" className="pt-16 pb-10 md:pt-24 md:pb-14 bg-muted">
       <Container>
         <SmoothScrollReveal>
           <SectionHeader
             eyebrow="Career Journey"
-            bgWord="EXPERIENCE"
+            title="Experience"
             description="My professional history and educational background."
           />
         </SmoothScrollReveal>
@@ -80,13 +80,21 @@ export default function Experience() {
                       <div className="flex flex-wrap items-center gap-x-3 gap-y-0.5 mb-3">
                         <span className="text-sm text-muted-foreground">{exp.company}</span>
                         <span className="text-xs text-muted-foreground/60">·</span>
-                        <span className="text-xs text-muted-foreground/80">{exp.location}</span>
+                        <span className="flex items-center gap-1">
+                          <svg className="w-3 h-3 text-muted-foreground/60 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                          <span className="text-xs text-muted-foreground/80">{exp.location}</span>
+                        </span>
                       </div>
 
                       <ul className="space-y-1.5 mb-4">
                         {exp.description.map((point, i) => (
                           <li key={i} className="flex gap-2 text-sm text-muted-foreground leading-relaxed">
-                            <span className="text-primary flex-shrink-0 mt-[3px] leading-none">▸</span>
+                            <svg className="w-4 h-4 text-primary flex-shrink-0 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
                             <span>{point}</span>
                           </li>
                         ))}

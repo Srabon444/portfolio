@@ -1,11 +1,11 @@
 "use client";
 
 import Hero from "@/components/sections/Hero";
-import Stats from "@/components/sections/Stats";
 import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
 import Contact from "@/components/sections/Contact";
 import Experience from "@/components/sections/Experience";
+import Contributions from "@/components/sections/Contributions";
 import Quote from "@/components/sections/Quote";
 import Navigation from "@/components/shared/Navigation";
 import CopyrightFooter from "@/components/shared/CopyrightFooter";
@@ -29,10 +29,10 @@ export default function Home() {
         <main>
           <Suspense fallback={<Loading />}>
             <Hero />
-            <Stats />
             <Experience />
             <Skills />
             <Projects />
+            <Contributions />
             <Quote />
             <Contact />
           </Suspense>
