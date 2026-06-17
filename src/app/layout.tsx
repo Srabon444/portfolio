@@ -4,13 +4,20 @@ import { ThemeProvider } from "@/provider/ThemeProvider";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import LayoutProvider from "@/provider/LayoutProvider";
-import { Montserrat_Alternates } from 'next/font/google';
+import { Oswald, Poppins } from 'next/font/google';
 
-const montserratAlternates = Montserrat_Alternates({
-  weight: ['400', '500'],
+const oswald = Oswald({
+  weight: ['600'],
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-montserrat-alternates',
+  variable: '--font-oswald',
+});
+
+const poppins = Poppins({
+  weight: ['400', '500', '600'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins',
 });
 
 export const metadata: Metadata = {
@@ -36,7 +43,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Ashraful Islam" />
       </head>
       <body
-        className={`${GeistSans.variable} ${GeistMono.variable} ${montserratAlternates.variable} font-sans antialiased`}
+        className={`${GeistSans.variable} ${GeistMono.variable} ${oswald.variable} ${poppins.variable} font-sans antialiased`}
         suppressHydrationWarning
       >
         <ThemeProvider>

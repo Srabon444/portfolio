@@ -18,12 +18,12 @@ export default function Projects() {
       : projects.filter((p) => p.technologies.includes(activeFilter));
 
   return (
-    <section id="projects" className="pt-10 pb-16 md:pt-14 md:pb-24 bg-background">
+    <section id="projects" className="pt-10 pb-16 md:pt-14 md:pb-24 bg-muted">
       <Container>
         <SmoothScrollReveal>
           <SectionHeader
             eyebrow="What I've Built"
-            bgWord="PROJECTS"
+            title="Projects"
             description="A selection of projects — from production systems to personal builds."
           />
         </SmoothScrollReveal>

@@ -8,10 +8,47 @@ import dynamic from "next/dynamic";
 import animationData from "@/data/lottie/development.json";
 import { smoothScrollTo } from "@/lib/smoothScroll";
 import { GitHubIcon, GitLabIcon, LinkedInIcon, EmailIcon } from "../shared/SocialIcons";
+import { useState, useEffect } from "react";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
+const roles = [
+  "ERP Specialist",
+  "Software Engineer",
+  "Full-Stack Developer",
+  "React Engineer",
+];
+
+function useTypewriter(texts: string[], typingSpeed = 80, eraseSpeed = 45, pauseMs = 2000) {
+  const [display, setDisplay] = useState("");
+  const [idx, setIdx] = useState(0);
+  const [erasing, setErasing] = useState(false);
+
+  useEffect(() => {
+    const full = texts[idx];
+
+    if (!erasing && display === full) {
+      const t = setTimeout(() => setErasing(true), pauseMs);
+      return () => clearTimeout(t);
+    }
+    if (erasing && display === "") {
+      setErasing(false);
+      setIdx((i) => (i + 1) % texts.length);
+      return;
+    }
+    const delay = erasing ? eraseSpeed : typingSpeed;
+    const t = setTimeout(() => {
+      setDisplay((d) => erasing ? d.slice(0, -1) : full.slice(0, d.length + 1));
+    }, delay);
+    return () => clearTimeout(t);
+  }, [display, idx, erasing, texts, typingSpeed, eraseSpeed, pauseMs]);
+
+  return display;
+}
+
 export default function Hero() {
+  const typedRole = useTypewriter(roles);
+
   const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
     smoothScrollTo(sectionId);
@@ -23,67 +60,43 @@ export default function Hero() {
         {/* Text content */}
         <div className="text-center lg:text-left flex-1 min-w-0">
           <SmoothScrollReveal delay={0.0} duration={0.5}>
+            {/* Available badge */}
+            <div className="flex items-center gap-2 justify-center lg:justify-start mb-4">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+              </span>
+              <span className="text-xs font-medium text-green-600 dark:text-green-400 tracking-wide">
+                Available for opportunities
+              </span>
+            </div>
             <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-3">
               Hi, I&apos;m
             </p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-foreground mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-foreground mb-5">
               {personalInfo.name}
             </h1>
           </SmoothScrollReveal>
 
-          <SmoothScrollReveal delay={0.16} duration={0.5}>
-            <div className="flex items-center gap-3 justify-center lg:justify-start mb-6">
+          <SmoothScrollReveal delay={0.12} duration={0.5}>
+            <div className="flex items-center gap-2 justify-center lg:justify-start mb-6 min-h-[1.75rem]">
               <div className="h-px w-10 bg-primary flex-shrink-0" />
-              <h2 className="text-base md:text-lg font-medium text-primary tracking-wide">
-                {personalInfo.title}
-              </h2>
+              <span className="text-base md:text-lg font-medium text-primary tracking-wide">
+                {typedRole}
+                <span className="inline-block w-[2px] h-[1em] bg-primary ml-0.5 align-middle animate-pulse" />
+              </span>
             </div>
           </SmoothScrollReveal>
 
-          <SmoothScrollReveal delay={0.24} duration={0.5}>
-            <div className="space-y-4 text-sm sm:text-[15px] text-muted-foreground mb-6 leading-relaxed max-w-lg mx-auto lg:mx-0">
-              <p>
-                With{" "}
-                <strong className="text-foreground font-semibold">3+ years of experience</strong>,
-                I help businesses{" "}
-                <strong className="text-foreground font-semibold">build and ship</strong>{" "}
-                production-ready digital products. I specialise in{" "}
-                <strong className="text-foreground font-semibold">Full-Stack Web Development</strong>{" "}
-                using React, Next.js, TypeScript, Node.js, NestJS, and PostgreSQL — from
-                pixel-perfect interfaces to robust backend systems.
-              </p>
-              <p>
-                I&apos;ve shipped platforms serving thousands of real users — from an{" "}
-                <strong className="text-foreground font-semibold">ERP for a Fortune 500 client</strong>{" "}
-                to{" "}
-                <strong className="text-foreground font-semibold">
-                  Bangladesh&apos;s largest ambulance booking system
-                </strong>
-                . I deliver{" "}
-                <strong className="text-foreground font-semibold">
-                  scalable, performance-optimized
-                </strong>{" "}
-                solutions. Available for{" "}
-                <strong className="text-foreground font-semibold">remote and onsite</strong>{" "}
-                opportunities worldwide.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-2 mb-8 max-w-lg mx-auto lg:mx-0">
-              {[
-                { label: "Location", value: personalInfo.location },
-                { label: "Availability", value: "Open to opportunities" },
-                { label: "Focus", value: "Full-Stack Engineering" },
-                { label: "Approach", value: "Product-minded" },
-              ].map(({ label, value }) => (
-                <div key={label} className="bg-muted rounded-lg px-3 py-2 border border-border">
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-wide mb-0.5">{label}</p>
-                  <p className="text-xs font-medium text-foreground">{value}</p>
-                </div>
-              ))}
-            </div>
+          <SmoothScrollReveal delay={0.2} duration={0.5}>
+            <p className="text-sm sm:text-[15px] text-muted-foreground mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
+              Full-Stack Software Engineer with 3+ years building production-ready web applications
+              — from ERP systems for Fortune 500 clients to Bangladesh&apos;s largest ambulance booking platform.
+              Available for remote opportunities worldwide.
+            </p>
           </SmoothScrollReveal>
 
-          <SmoothScrollReveal delay={0.32} duration={0.5}>
+          <SmoothScrollReveal delay={0.28} duration={0.5}>
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8">
               <Link
                 href="#contact"
@@ -102,7 +115,7 @@ export default function Hero() {
             </div>
           </SmoothScrollReveal>
 
-          <SmoothScrollReveal delay={0.4} duration={0.5}>
+          <SmoothScrollReveal delay={0.35} duration={0.5}>
             <div className="flex items-center gap-2 justify-center lg:justify-start">
               {[
                 { href: personalInfo.gitlab, label: "GitLab", Icon: GitLabIcon },
@@ -130,7 +143,7 @@ export default function Hero() {
           direction="right"
           delay={0.2}
           duration={0.7}
-          className="w-full max-w-xs lg:max-w-md flex-shrink-0"
+          className="w-full max-w-xs lg:max-w-sm flex-shrink-0"
         >
           <Lottie animationData={animationData} loop className="w-full h-auto" />
         </SmoothScrollReveal>
