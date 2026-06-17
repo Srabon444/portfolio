@@ -21,7 +21,7 @@ export default function Experience() {
           <SectionHeader
             eyebrow="Career Journey"
             title="Experience"
-            description="My professional history and educational background."
+            description="Where I've been building, shipping, and growing as an engineer."
           />
         </SmoothScrollReveal>
 

@@ -21,12 +21,20 @@ h1, h2, h3 {
 }
 
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
   background: transparent;
 }
 
-* {
-  scrollbar-width: none;
+::-webkit-scrollbar-thumb {
+  background: oklch(0.75 0.04 52 / 0.5);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.6 0.06 52 / 0.7);
 }
 
 section {
@@ -64,6 +72,12 @@ section {
   ::view-transition-new(root) {
     animation-duration: 0.01s;
   }
+}
+
+/* ── Badge pulse ring (matches Sharif's 1.8s ease-out style) ── */
+@keyframes pulse-ring {
+  0%        { transform: scale(0.8); opacity: 0.9; }
+  80%, 100% { transform: scale(2.2); opacity: 0; }
 }
 
 /* ── Scroll reveal keyframes ────────────────────────────── */

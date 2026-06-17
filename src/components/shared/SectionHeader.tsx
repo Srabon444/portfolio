@@ -17,7 +17,7 @@ export default function SectionHeader({
         {eyebrow}
       </span>
       {title && (
-        <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 leading-tight">
+        <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 leading-tight">
           {title}
         </h2>
       )}

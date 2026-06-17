@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { skills } from "@/data/portfolioData";
 import Container from "../shared/Container";
 import SmoothScrollReveal from "../shared/SmoothScrollReveal";
@@ -8,7 +9,6 @@ import SectionHeader from "../shared/SectionHeader";
 const DEVICON = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
 const SIMPLEICON = "https://cdn.simpleicons.org";
 
-// Primary: devicon (colorful, works in light & dark)
 const deviconMap: Record<string, string> = {
   "Next.js": "nextjs/nextjs-original",
   "React.js": "react/react-original",
@@ -40,12 +40,13 @@ const deviconMap: Record<string, string> = {
   "Digital Ocean": "digitalocean/digitalocean-original",
 };
 
-// Fallback: simpleicons (svg by slug — dark mode needs invert for black icons)
 const simpleiconMap: Record<string, string> = {
   "Vercel": "vercel",
   "Netlify": "netlify",
   "Supabase": "supabase",
   "Railway": "railway",
+  "Render": "render",
+  "Coolify": "coolify",
   "Turborepo": "turborepo",
   "Framer Motion": "framer",
   "GSAP": "greensock",
@@ -63,12 +64,18 @@ const simpleiconMap: Record<string, string> = {
   "Google Maps": "googlemaps",
   "Headless UI": "headlessui",
   "Zustand": "zustand",
+  "JWT Authentication": "jsonwebtokens",
 };
 
-// simpleicons that are monochrome-black and need inversion in dark mode
+// Black-only simpleicons that need dark:invert
 const monochromeSimple = new Set([
   "vercel", "railway", "turborepo", "notion", "headlessui",
 ]);
+
+// Readable abbreviations for skills with no CDN icon
+const abbrevMap: Record<string, string> = {
+  "REST APIs": "API",
+};
 
 const categories = [
   { label: "Frontend", skills: skills.frontend },
@@ -79,33 +86,32 @@ const categories = [
 ];
 
 function SkillCard({ skill }: { skill: string }) {
+  const [failed, setFailed] = useState(false);
   const deviconSlug = deviconMap[skill];
   const simpleslug = simpleiconMap[skill];
-  const abbr = skill.replace(/[^a-zA-Z0-9]/g, "").substring(0, 2).toUpperCase();
+  const hasIcon = (deviconSlug || simpleslug) && !failed;
+  const abbr = abbrevMap[skill] ?? skill.replace(/[^a-zA-Z0-9]/g, "").substring(0, 2).toUpperCase();
+
+  const src = deviconSlug
+    ? `${DEVICON}/${deviconSlug}.svg`
+    : `${SIMPLEICON}/${simpleslug}`;
+
+  const imgClass = `w-9 h-9 object-contain${
+    !deviconSlug && simpleslug && monochromeSimple.has(simpleslug) ? " dark:invert" : ""
+  }`;
 
   return (
-    <div className="flex flex-col items-center gap-2 p-3 rounded-xl border border-transparent hover:border-primary/40 hover:bg-primary/5 transition-all duration-200 cursor-default group">
-      {deviconSlug ? (
+    <div className="flex flex-col items-center gap-2 p-3 rounded-xl bg-card border border-transparent hover:border-primary/40 transition-all duration-200 cursor-default group">
+      {hasIcon ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          src={`${DEVICON}/${deviconSlug}.svg`}
+          src={src}
           alt={skill}
           width={36}
           height={36}
-          className="w-9 h-9 object-contain"
+          className={imgClass}
           loading="lazy"
-          onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
-        />
-      ) : simpleslug ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={`${SIMPLEICON}/${simpleslug}`}
-          alt={skill}
-          width={36}
-          height={36}
-          className={`w-9 h-9 object-contain ${monochromeSimple.has(simpleslug) ? "dark:invert" : ""}`}
-          loading="lazy"
-          onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+          onError={() => setFailed(true)}
         />
       ) : (
         <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-[11px] font-bold leading-none">
@@ -139,7 +145,7 @@ export default function Skills() {
                   <span>{cat.label}</span>
                   <span className="flex-1 h-px bg-border" />
                 </h3>
-                <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-1">
+                <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2">
                   {cat.skills.map((skill) => (
                     <SkillCard key={skill} skill={skill} />
                   ))}

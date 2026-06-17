@@ -11,9 +11,8 @@ function notify() {
 }
 
 export function useScrollY(): number {
-  const [y, setY] = useState(() =>
-    typeof window !== "undefined" ? window.scrollY : 0
-  );
+  // Always init to 0 so server and client render the same HTML (fixes hydration mismatch)
+  const [y, setY] = useState(0);
 
   useEffect(() => {
     if (!active && typeof window !== "undefined") {
