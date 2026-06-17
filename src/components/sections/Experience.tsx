@@ -10,7 +10,6 @@ import Container from "../shared/Container";
 import SmoothScrollReveal from "../shared/SmoothScrollReveal";
 import SectionHeader from "../shared/SectionHeader";
 import { useState } from "react";
-import ContactButton from "../shared/ContactButton";
 
 export default function Experience() {
   const [activeTab, setActiveTab] = useState<"work" | "education">("work");
@@ -20,8 +19,7 @@ export default function Experience() {
       <Container>
         <SmoothScrollReveal>
           <SectionHeader
-            eyebrow="Experience"
-            title="Career Journey"
+            eyebrow="Career Journey"
             bgWord="EXPERIENCE"
             description="My professional history and educational background."
           />
@@ -150,17 +148,6 @@ export default function Experience() {
             </div>
           )}
 
-          {/* CTA */}
-          <SmoothScrollReveal delay={0.1} duration={0.5} className="mt-8 md:mt-10">
-            <div className="text-center bg-muted rounded-2xl p-8 border border-border">
-              <h4 className="text-lg font-semibold mb-2">Let&apos;s Work Together</h4>
-              <p className="text-sm text-muted-foreground mb-5 max-w-md mx-auto">
-                Want to discuss how my experience can contribute to your project? Always open to
-                new opportunities.
-              </p>
-              <ContactButton text="Get In Touch" />
-            </div>
-          </SmoothScrollReveal>
         </div>
       </Container>
     </section>

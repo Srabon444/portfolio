@@ -4,7 +4,6 @@ import { ThemeProvider } from "@/provider/ThemeProvider";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import LayoutProvider from "@/provider/LayoutProvider";
-import ReactQueryProvider from "@/provider/QueryClientProvider";
 import { Montserrat_Alternates } from 'next/font/google';
 
 const montserratAlternates = Montserrat_Alternates({
@@ -41,9 +40,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ThemeProvider>
-          <ReactQueryProvider>
-            <LayoutProvider>{children}</LayoutProvider>
-          </ReactQueryProvider>
+          <LayoutProvider>{children}</LayoutProvider>
         </ThemeProvider>
       </body>
     </html>

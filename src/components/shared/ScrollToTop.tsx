@@ -1,15 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useScrollY } from "@/hooks/useScrollY";
 
 export default function ScrollToTop() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const toggle = () => setIsVisible(window.scrollY > 500);
-    window.addEventListener("scroll", toggle, { passive: true });
-    return () => window.removeEventListener("scroll", toggle);
-  }, []);
+  const scrollY = useScrollY();
+  const isVisible = scrollY > 500;
 
   return (
     <button

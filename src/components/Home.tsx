@@ -15,10 +15,11 @@ import Loading from "@/components/shared/Loading";
 import IntroScreen from "./IntroScreen";
 
 export default function Home() {
-  const [showIntro, setShowIntro] = useState(true);
+  const [showIntro, setShowIntro] = useState(false);
 
   return (
     <>
+      {/* Intro screen disabled — re-enable by changing useState(false) to useState(true) */}
       {showIntro && <IntroScreen onComplete={() => setShowIntro(false)} />}
 
       <div
@@ -29,8 +30,8 @@ export default function Home() {
           <Suspense fallback={<Loading />}>
             <Hero />
             <Stats />
-            <Skills />
             <Experience />
+            <Skills />
             <Projects />
             <Quote />
             <Contact />

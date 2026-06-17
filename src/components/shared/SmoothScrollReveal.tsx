@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode, useEffect, useRef } from "react";
+import { observe, unobserve } from "@/lib/scrollObserver";
 
 interface SmoothScrollRevealProps {
   children: ReactNode;
@@ -34,22 +35,16 @@ export default function SmoothScrollReveal({
     const el = ref.current;
     if (!el) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-            if (once) observer.unobserve(entry.target);
-          } else if (!once) {
-            entry.target.classList.remove("in-view");
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
-    );
+    observe(el, (entry) => {
+      if (entry.isIntersecting) {
+        el.classList.add("in-view");
+        if (once) unobserve(el);
+      } else if (!once) {
+        el.classList.remove("in-view");
+      }
+    });
 
-    observer.observe(el);
-    return () => observer.disconnect();
+    return () => unobserve(el);
   }, [once]);
 
   return (
