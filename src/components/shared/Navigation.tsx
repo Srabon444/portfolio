@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import Container from "./Container";
 import ThemeToggle from "./ThemeToggle";
 import { smoothScrollTo } from "@/lib/smoothScroll";
+import { useScrollY } from "@/hooks/useScrollY";
 
 const navLinks = [
   { name: "Home", href: "#home", sectionId: "home" },
@@ -16,30 +17,23 @@ const navLinks = [
 ];
 
 export default function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const scrollY = useScrollY();
+  const isScrolled = scrollY > 20;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-
-      const sections = navLinks.map((l) => document.getElementById(l.sectionId));
-      let current = "home";
-      sections.forEach((section) => {
-        if (section && window.scrollY >= section.offsetTop - 120) {
-          current = section.id;
-        }
-      });
-      setActiveSection(current);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    const sections = navLinks.map((l) => document.getElementById(l.sectionId));
+    let current = "home";
+    sections.forEach((section) => {
+      if (section && scrollY >= section.offsetTop - 120) {
+        current = section.id;
+      }
+    });
+    setActiveSection(current);
+  }, [scrollY]);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {

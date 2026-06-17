@@ -56,12 +56,11 @@ const categories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-16 md:py-24 bg-background">
+    <section id="skills" className="py-16 md:py-24 bg-muted">
       <Container>
         <SmoothScrollReveal>
           <SectionHeader
-            eyebrow="Skills"
-            title="Tech Stack"
+            eyebrow="Tech Stack"
             bgWord="EXPERTISE"
             description="Technologies and tools I use to build production-ready products."
             center={true}
