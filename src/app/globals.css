@@ -43,36 +43,6 @@ section {
   z-index: 1;
 }
 
-/* Theme transition — color only, not transforms (conflicts with animations) */
-* {
-  transition: background-color 0.25s ease, color 0.15s ease, border-color 0.25s ease, box-shadow 0.25s ease, fill 0.15s ease;
-}
-
-/* View Transitions API — smooth theme cross-fade */
-::view-transition-old(root) {
-  animation: 0.4s ease-in both theme-fade-out;
-}
-
-::view-transition-new(root) {
-  animation: 0.4s ease-out both theme-fade-in;
-}
-
-@keyframes theme-fade-out {
-  from { opacity: 1; }
-  to   { opacity: 0; }
-}
-
-@keyframes theme-fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation-duration: 0.01s;
-  }
-}
 
 /* ── Badge pulse ring (matches Sharif's 1.8s ease-out style) ── */
 @keyframes pulse-ring {
