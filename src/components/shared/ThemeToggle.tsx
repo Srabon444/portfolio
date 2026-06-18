@@ -2,7 +2,6 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { flushSync } from "react-dom";
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -15,20 +14,7 @@ export default function ThemeToggle() {
   }
 
   const toggle = () => {
-    const next = theme === "dark" ? "light" : "dark";
-    const doc = document as Document & {
-      startViewTransition?: (cb: () => void) => void;
-    };
-
-    if (doc.startViewTransition) {
-      doc.startViewTransition(() => {
-        // flushSync forces React to re-render synchronously inside the
-        // transition callback so the browser snapshots the fully-updated DOM
-        flushSync(() => setTheme(next));
-      });
-    } else {
-      setTheme(next);
-    }
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
   return (
