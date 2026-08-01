@@ -1,8 +1,14 @@
+import { SCROLL_CONFIG } from "./constants";
+
 function easeOutCubic(t: number) {
   return 1 - Math.pow(1 - t, 3);
 }
 
-export function smoothScrollTo(targetId: string, navOffset = 80, duration = 400) {
+export function smoothScrollTo(
+  targetId: string,
+  navOffset = SCROLL_CONFIG.navScrollOffset,
+  duration = SCROLL_CONFIG.navScrollDuration
+) {
   const el = document.getElementById(targetId);
   if (!el) return;
 

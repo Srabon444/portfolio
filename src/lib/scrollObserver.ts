@@ -1,3 +1,5 @@
+import { REVEAL_OBSERVER_OPTIONS } from "./constants";
+
 type Cb = (entry: IntersectionObserverEntry) => void;
 
 const callbacks = new Map<Element, Cb>();
@@ -8,7 +10,7 @@ function getObserver(): IntersectionObserver | null {
   if (!observer) {
     observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => callbacks.get(e.target)?.(e)),
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+      REVEAL_OBSERVER_OPTIONS
     );
   }
   return observer;

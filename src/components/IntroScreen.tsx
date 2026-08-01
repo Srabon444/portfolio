@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { INTRO_SCREEN_CONFIG } from "@/lib/constants";
 
 const allTechnologies = [
   "React.js",
@@ -27,9 +28,9 @@ const IntroScreen = ({ onComplete }: { onComplete: () => void }) => {
         clearInterval(interval);
         setIsExiting(true);
         // Wait for slide-out CSS animation then unmount
-        setTimeout(onComplete, 900);
+        setTimeout(onComplete, INTRO_SCREEN_CONFIG.completeDelayMs);
       }
-    }, 400);
+    }, INTRO_SCREEN_CONFIG.techCycleIntervalMs);
     return () => clearInterval(interval);
   }, [onComplete]);
 

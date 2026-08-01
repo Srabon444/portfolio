@@ -7,6 +7,7 @@ import SectionHeader from "../shared/SectionHeader";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { SECTION_IDS } from "@/lib/constants";
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -18,7 +19,7 @@ export default function Projects() {
       : projects.filter((p) => p.technologies.includes(activeFilter));
 
   return (
-    <section id="projects" className="pt-10 pb-16 md:pt-14 md:pb-24 bg-muted">
+    <section id={SECTION_IDS.projects} className="pt-10 pb-16 md:pt-14 md:pb-24 bg-muted">
       <Container>
         <SmoothScrollReveal>
           <SectionHeader

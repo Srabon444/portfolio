@@ -5,9 +5,10 @@ import { skills } from "@/data/portfolioData";
 import Container from "../shared/Container";
 import SmoothScrollReveal from "../shared/SmoothScrollReveal";
 import SectionHeader from "../shared/SectionHeader";
+import { ICON_CDN, SECTION_IDS } from "@/lib/constants";
 
-const DEVICON = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
-const SIMPLEICON = "https://cdn.simpleicons.org";
+const DEVICON = ICON_CDN.devicon;
+const SIMPLEICON = ICON_CDN.simpleicon;
 
 const deviconMap: Record<string, string> = {
   "Next.js": "nextjs/nextjs-original",
@@ -127,7 +128,7 @@ function SkillCard({ skill }: { skill: string }) {
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-16 md:py-24 bg-background">
+    <section id={SECTION_IDS.skills} className="py-16 md:py-24 bg-background">
       <Container>
         <SmoothScrollReveal>
           <SectionHeader
