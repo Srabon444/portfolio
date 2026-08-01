@@ -13,9 +13,9 @@ import { useState, useEffect } from "react";
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 const roles = [
+  "Software Engineer",
   "ERP Specialist",
   "Full-Stack Engineer",
-  "Software Engineer",
 ];
 
 function useTypewriter(texts: string[], typingSpeed = 80, eraseSpeed = 45, pauseMs = 2000) {

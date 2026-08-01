@@ -12,14 +12,6 @@ export default function Quote() {
     setQuote(inspirationalQuotes[Math.floor(Math.random() * inspirationalQuotes.length)]);
   }, []);
 
-  const getRandomQuote = () => {
-    let next: QuoteType;
-    do {
-      next = inspirationalQuotes[Math.floor(Math.random() * inspirationalQuotes.length)];
-    } while (next.text === quote.text && inspirationalQuotes.length > 1);
-    setQuote(next);
-  };
-
   return (
     <section className="py-12 md:py-20 bg-primary/5 border-y border-primary/10">
       <Container>
@@ -34,13 +26,7 @@ export default function Quote() {
           <p className="text-base md:text-lg lg:text-xl font-medium mb-4 leading-relaxed text-foreground">
             {quote.text}
           </p>
-          <p className="text-sm text-muted-foreground mb-6">— {quote.author}</p>
-          <button
-            onClick={getRandomQuote}
-            className="text-xs font-medium text-muted-foreground hover:text-primary transition-colors px-4 py-2 border border-border rounded-lg hover:border-primary/40"
-          >
-            New Quote
-          </button>
+          <p className="text-sm text-muted-foreground">— {quote.author}</p>
         </SmoothScrollReveal>
       </Container>
     </section>
