@@ -6,6 +6,8 @@ import Container from "../shared/Container";
 import SmoothScrollReveal from "../shared/SmoothScrollReveal";
 import SectionHeader from "../shared/SectionHeader";
 import { useTheme } from "next-themes";
+import { personalInfo } from "@/data/portfolioData";
+import { CONTRIBUTION_CALENDAR_THEME, SECTION_IDS } from "@/lib/constants";
 
 interface Activity {
   date: string;
@@ -57,10 +59,9 @@ const GitHubCalendar = dynamic(
 );
 
 // Teal theme matching the site's primary color
-const calendarTheme = {
-  light: ["#e8f4f2", "#a3d4cc", "#4db0a4", "#0d9488", "#0a6e65"],
-  dark: ["#1a2625", "#003d38", "#006059", "#009e91", "#00c5b5"],
-};
+const calendarTheme = CONTRIBUTION_CALENDAR_THEME;
+
+const githubUsername = personalInfo.github.replace(/\/$/, "").split("/").pop()!;
 
 export default function Contributions() {
   const { resolvedTheme } = useTheme();
@@ -103,7 +104,7 @@ export default function Contributions() {
     : null;
 
   return (
-    <section id="contributions" className="py-16 md:py-24 bg-background">
+    <section id={SECTION_IDS.contributions} className="py-16 md:py-24 bg-background">
       {/* max-w-7xl makes this section deliberately wider than other sections (max-w-6xl) */}
       <Container className="max-w-7xl">
         <SmoothScrollReveal>
@@ -139,7 +140,7 @@ export default function Contributions() {
           <div className="bg-card rounded-2xl border border-border/60 p-6 overflow-x-auto">
             <div className="flex justify-center min-w-[600px]">
               <GitHubCalendar
-                username="Srabon444"
+                username={githubUsername}
                 colorScheme={colorScheme}
                 theme={calendarTheme}
                 fontSize={12}

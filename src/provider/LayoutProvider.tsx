@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Toaster } from "react-hot-toast";
+import { TOAST_DURATION_MS } from "@/lib/constants";
 
 export default function LayoutProvider({
   children,
@@ -13,7 +14,7 @@ export default function LayoutProvider({
       <Toaster 
         position="top-right"
         toastOptions={{
-          duration: 3000,
+          duration: TOAST_DURATION_MS,
           style: {
             background: 'var(--color-card)',
             color: 'var(--color-card-foreground)',

@@ -7,28 +7,29 @@ import Container from "./Container";
 import ThemeToggle from "./ThemeToggle";
 import { smoothScrollTo } from "@/lib/smoothScroll";
 import { useScrollY } from "@/hooks/useScrollY";
+import { RESUME_URL, SCROLL_CONFIG, SECTION_IDS, TWITTER_BLUE } from "@/lib/constants";
 
 const navLinks = [
-  { name: "Home", href: "#home", sectionId: "home" },
-  { name: "Experience", href: "#experience", sectionId: "experience" },
-  { name: "Skills", href: "#skills", sectionId: "skills" },
-  { name: "Projects", href: "#projects", sectionId: "projects" },
-  { name: "Contact", href: "#contact", sectionId: "contact" },
+  { name: "Home", href: `#${SECTION_IDS.home}`, sectionId: SECTION_IDS.home },
+  { name: "Experience", href: `#${SECTION_IDS.experience}`, sectionId: SECTION_IDS.experience },
+  { name: "Skills", href: `#${SECTION_IDS.skills}`, sectionId: SECTION_IDS.skills },
+  { name: "Projects", href: `#${SECTION_IDS.projects}`, sectionId: SECTION_IDS.projects },
+  { name: "Contact", href: `#${SECTION_IDS.contact}`, sectionId: SECTION_IDS.contact },
 ];
 
 export default function Navigation() {
   const scrollY = useScrollY();
-  const isScrolled = scrollY > 20;
+  const isScrolled = scrollY > SCROLL_CONFIG.navShadowThreshold;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState<string>(SECTION_IDS.home);
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const sections = navLinks.map((l) => document.getElementById(l.sectionId));
-    let current = "home";
+    let current: string = SECTION_IDS.home;
     sections.forEach((section) => {
-      if (section && scrollY >= section.offsetTop - 120) {
+      if (section && scrollY >= section.offsetTop - SCROLL_CONFIG.navStickyOffset) {
         current = section.id;
       }
     });
@@ -68,8 +69,8 @@ export default function Navigation() {
       <Container className="flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
         <Link
-          href="#home"
-          onClick={(e) => scrollTo(e, "home")}
+          href={`#${SECTION_IDS.home}`}
+          onClick={(e) => scrollTo(e, SECTION_IDS.home)}
           className="flex items-center gap-1.5 font-bold text-xl md:text-2xl select-none"
         >
           <span className="text-primary">{firstName}</span>
@@ -79,7 +80,8 @@ export default function Navigation() {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            className="w-5 h-5 flex-shrink-0 text-[#1D9BF0]"
+            className="w-5 h-5 flex-shrink-0"
+            style={{ color: TWITTER_BLUE }}
             fill="currentColor"
             aria-label="Verified"
           >
@@ -107,7 +109,7 @@ export default function Navigation() {
             ))}
           </ul>
           <a
-            href="https://drive.google.com/file/d/1YOl-_xifAZeF5UYEbrZux1j4x2q2vcmj/view?usp=drive_link"
+            href={RESUME_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-primary/30 bg-primary/8 text-sm font-medium text-primary hover:bg-primary/15 hover:border-primary/50 transition-colors"
@@ -167,7 +169,7 @@ export default function Navigation() {
             ))}
             <li>
               <a
-                href="https://drive.google.com/file/d/1YOl-_xifAZeF5UYEbrZux1j4x2q2vcmj/view?usp=drive_link"
+                href={RESUME_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-sm font-medium text-primary hover:bg-primary/8 transition-colors"

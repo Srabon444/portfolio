@@ -6,6 +6,7 @@ import SmoothScrollReveal from "../shared/SmoothScrollReveal";
 import SectionHeader from "../shared/SectionHeader";
 import Link from "next/link";
 import ContactButton from "../shared/ContactButton";
+import { SECTION_IDS } from "@/lib/constants";
 
 const coreValues = [
   {
@@ -46,7 +47,7 @@ const quickFacts = [
 
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-muted">
+    <section id={SECTION_IDS.about} className="py-24 bg-muted">
       <Container>
         <SmoothScrollReveal>
           <SectionHeader

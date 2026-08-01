@@ -8,6 +8,7 @@ import { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import { z } from "zod";
 import { GitHubIcon, GitLabIcon, LinkedInIcon } from "../shared/SocialIcons";
+import { SECTION_IDS } from "@/lib/constants";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -108,7 +109,7 @@ export default function Contact() {
     }`;
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-muted">
+    <section id={SECTION_IDS.contact} className="py-16 md:py-24 bg-muted">
       <Container>
         <SmoothScrollReveal>
           <SectionHeader

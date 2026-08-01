@@ -10,12 +10,13 @@ import Container from "../shared/Container";
 import SmoothScrollReveal from "../shared/SmoothScrollReveal";
 import SectionHeader from "../shared/SectionHeader";
 import { useState } from "react";
+import { SECTION_IDS } from "@/lib/constants";
 
 export default function Experience() {
   const [activeTab, setActiveTab] = useState<"work" | "education">("work");
 
   return (
-    <section id="experience" className="pt-16 pb-10 md:pt-24 md:pb-14 bg-muted">
+    <section id={SECTION_IDS.experience} className="pt-16 pb-10 md:pt-24 md:pb-14 bg-muted">
       <Container>
         <SmoothScrollReveal>
           <SectionHeader

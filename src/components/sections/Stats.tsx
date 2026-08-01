@@ -1,7 +1,8 @@
 import Container from "../shared/Container";
+import { getYearsOfExperience } from "@/lib/utils";
 
 const stats = [
-  { value: "3.5+", label: "Years of Experience" },
+  { value: getYearsOfExperience(), label: "Years of Experience" },
   { value: "10+", label: "Projects Delivered" },
   { value: "4", label: "Companies Worked" },
 ];

@@ -1,10 +1,11 @@
 "use client";
 
 import { useScrollY } from "@/hooks/useScrollY";
+import { SCROLL_CONFIG } from "@/lib/constants";
 
 export default function ScrollToTop() {
   const scrollY = useScrollY();
-  const isVisible = scrollY > 500;
+  const isVisible = scrollY > SCROLL_CONFIG.scrollToTopThreshold;
 
   return (
     <button

@@ -7,6 +7,8 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import animationData from "@/data/lottie/development.json";
 import { smoothScrollTo } from "@/lib/smoothScroll";
+import { getYearsOfExperience } from "@/lib/utils";
+import { SECTION_IDS, TYPEWRITER_CONFIG } from "@/lib/constants";
 import { GitHubIcon, GitLabIcon, LinkedInIcon, EmailIcon } from "../shared/SocialIcons";
 import { useState, useEffect } from "react";
 
@@ -18,7 +20,12 @@ const roles = [
   "Full-Stack Engineer",
 ];
 
-function useTypewriter(texts: string[], typingSpeed = 80, eraseSpeed = 45, pauseMs = 2000) {
+function useTypewriter(
+  texts: string[],
+  typingSpeed = TYPEWRITER_CONFIG.typingSpeed,
+  eraseSpeed = TYPEWRITER_CONFIG.eraseSpeed,
+  pauseMs = TYPEWRITER_CONFIG.pauseMs
+) {
   const [display, setDisplay] = useState("");
   const [idx, setIdx] = useState(0);
   const [erasing, setErasing] = useState(false);
@@ -54,7 +61,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center pt-20 pb-16">
+    <section id={SECTION_IDS.home} className="min-h-screen flex items-center pt-20 pb-16">
       <Container className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-10">
         {/* Text content */}
         <div className="text-center lg:text-left flex-1 min-w-0">
@@ -92,7 +99,7 @@ export default function Hero() {
 
           <SmoothScrollReveal delay={0.2} duration={0.5}>
             <p className="text-sm sm:text-[15px] text-muted-foreground mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
-              Full-Stack Software Engineer with 3.5+ years building production-ready web applications
+              Full-Stack Software Engineer with {getYearsOfExperience()} years building production-ready web applications
               — from ERP systems for Fortune 500 clients to Bangladesh&apos;s largest ambulance booking platform.
               Available for remote opportunities worldwide.
             </p>
@@ -101,15 +108,15 @@ export default function Hero() {
           <SmoothScrollReveal delay={0.28} duration={0.5}>
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8">
               <Link
-                href="#contact"
-                onClick={(e) => scrollTo(e, "contact")}
+                href={`#${SECTION_IDS.contact}`}
+                onClick={(e) => scrollTo(e, SECTION_IDS.contact)}
                 className="px-7 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-center font-medium text-sm"
               >
                 Get in Touch
               </Link>
               <Link
-                href="#projects"
-                onClick={(e) => scrollTo(e, "projects")}
+                href={`#${SECTION_IDS.projects}`}
+                onClick={(e) => scrollTo(e, SECTION_IDS.projects)}
                 className="px-7 py-3 rounded-lg border border-border text-foreground/80 hover:bg-muted hover:text-foreground transition-colors text-center font-medium text-sm"
               >
                 View My Work

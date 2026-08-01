@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { smoothScrollTo } from "@/lib/smoothScroll";
+import { SECTION_IDS } from "@/lib/constants";
 
 type ContactButtonProps = {
   className?: string;
@@ -16,7 +17,7 @@ export default function ContactButton({
 }: ContactButtonProps) {
   const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    smoothScrollTo("contact");
+    smoothScrollTo(SECTION_IDS.contact);
   };
 
   const styles = {
@@ -26,7 +27,7 @@ export default function ContactButton({
 
   return (
     <Link
-      href="#contact"
+      href={`#${SECTION_IDS.contact}`}
       onClick={scrollToContact}
       className={`inline-flex items-center justify-center px-6 py-2.5 rounded-lg font-medium text-sm transition-colors duration-200 ${styles[variant]} ${className}`}
     >
