@@ -60,7 +60,7 @@ export default function Hero() {
         <div className="text-center lg:text-left flex-1 min-w-0">
           <SmoothScrollReveal delay={0.0} duration={0.5}>
             {/* Available badge — oval pill */}
-            <div className="flex items-center justify-center lg:justify-start mb-5">
+            {/* <div className="flex items-center justify-center lg:justify-start mb-5">
               <span className="inline-flex w-fit items-center gap-2 rounded-full border border-border/50 bg-card/80 px-4 py-1.5 text-xs font-medium text-muted-foreground shadow-sm backdrop-blur-sm">
                 <span className="relative flex h-2 w-2 flex-shrink-0">
                   <span
@@ -71,7 +71,7 @@ export default function Hero() {
                 </span>
                 Available for opportunities
               </span>
-            </div>
+            </div> */}
             <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-3">
               Hi, I&apos;m
             </p>
@@ -92,7 +92,7 @@ export default function Hero() {
 
           <SmoothScrollReveal delay={0.2} duration={0.5}>
             <p className="text-sm sm:text-[15px] text-muted-foreground mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
-              Full-Stack Software Engineer with 3+ years building production-ready web applications
+              Full-Stack Software Engineer with 3.5+ years building production-ready web applications
               — from ERP systems for Fortune 500 clients to Bangladesh&apos;s largest ambulance booking platform.
               Available for remote opportunities worldwide.
             </p>
