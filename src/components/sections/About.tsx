@@ -39,7 +39,7 @@ const coreValues = [
 
 const quickFacts = [
   { label: "Location", value: personalInfo.location },
-  // { label: "Availability", value: "Open to opportunities" },
+  { label: "Availability", value: "Open to opportunities" },
   { label: "Focus", value: "Full-Stack Engineering" },
   { label: "Approach", value: "Product-minded" },
 ];
