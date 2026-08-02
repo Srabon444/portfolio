@@ -152,7 +152,7 @@ export const projects: Project[] = [
     description: "Cross-platform internal Techzu tool for office meal ordering, tally, dues tracking, and cancel-approval workflow, with separate admin and user dashboards. One SvelteKit + Supabase codebase powers a live web app, Desktop apps (Linux/Windows via Tauri), and an Android app.",
     technologies: ["SvelteKit", "Supabase", "Tauri", "TypeScript"],
     image: "/images/mealflow-3.png",
-    demoLink: "https://meal-flow-phi.vercel.app",
+    demoLink: "https://mealflow-zu.vercel.app/login",
     codeLink: "https://github.com/Srabon444/meal-flow",
     work: false,
     hobby: true,
