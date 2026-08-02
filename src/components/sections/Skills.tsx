@@ -13,6 +13,8 @@ const SIMPLEICON = ICON_CDN.simpleicon;
 const deviconMap: Record<string, string> = {
   "Next.js": "nextjs/nextjs-original",
   "React.js": "react/react-original",
+  "Svelte": "svelte/svelte-original",
+  "Tauri": "tauri/tauri-original",
   "TypeScript": "typescript/typescript-original",
   "JavaScript": "javascript/javascript-original",
   "Tailwind": "tailwindcss/tailwindcss-original",

@@ -44,12 +44,15 @@ export const personalInfo = {
   gitlab: "https://gitlab.com/users/srabon444/starred",
   github: "https://github.com/Srabon444",
   linkedin: "https://www.linkedin.com/in/ashraful-islam-rabby/",
+  discord: "https://discord.com/users/codesmmith01",
 };
 
 export const skills = {
   frontend: [
     "Next.js",
     "React.js",
+    "Svelte",
+    "Tauri",
     "TypeScript",
     "JavaScript",
     "Tailwind",
