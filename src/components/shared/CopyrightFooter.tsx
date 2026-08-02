@@ -1,7 +1,7 @@
 import { personalInfo } from "@/data/portfolioData";
 import Container from "./Container";
 import Link from "next/link";
-import { GitHubIcon, GitLabIcon, LinkedInIcon, EmailIcon } from "./SocialIcons";
+import { GitHubIcon, GitLabIcon, LinkedInIcon, DiscordIcon, EmailIcon } from "./SocialIcons";
 
 export default function CopyrightFooter() {
   return (
@@ -16,6 +16,7 @@ export default function CopyrightFooter() {
             { href: personalInfo.github, label: "GitHub", Icon: GitHubIcon },
             { href: personalInfo.gitlab, label: "GitLab", Icon: GitLabIcon },
             { href: personalInfo.linkedin, label: "LinkedIn", Icon: LinkedInIcon },
+            { href: personalInfo.discord, label: "Discord", Icon: DiscordIcon },
             { href: `mailto:${personalInfo.email}`, label: "Email", Icon: EmailIcon },
           ].map(({ href, label, Icon }) => (
             <Link

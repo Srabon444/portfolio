@@ -9,7 +9,7 @@ import animationData from "@/data/lottie/development.json";
 import { smoothScrollTo } from "@/lib/smoothScroll";
 import { getYearsOfExperience } from "@/lib/utils";
 import { SECTION_IDS, TYPEWRITER_CONFIG } from "@/lib/constants";
-import { GitHubIcon, GitLabIcon, LinkedInIcon, EmailIcon } from "../shared/SocialIcons";
+import { GitHubIcon, GitLabIcon, LinkedInIcon, DiscordIcon, EmailIcon } from "../shared/SocialIcons";
 import { useState, useEffect } from "react";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
@@ -130,6 +130,7 @@ export default function Hero() {
                 { href: personalInfo.gitlab, label: "GitLab", Icon: GitLabIcon },
                 { href: personalInfo.github, label: "GitHub", Icon: GitHubIcon },
                 { href: personalInfo.linkedin, label: "LinkedIn", Icon: LinkedInIcon },
+                { href: personalInfo.discord, label: "Discord", Icon: DiscordIcon },
                 { href: `mailto:${personalInfo.email}`, label: "Email", Icon: EmailIcon },
               ].map(({ href, label, Icon }) => (
                 <a
