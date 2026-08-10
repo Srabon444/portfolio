@@ -171,10 +171,21 @@ export const experiences: Experience[] = [
     jobType: "Remote",
     period: "November 2025 – Present",
     description: [
-      "Developing a comprehensive ERP system for a Fortune 500 client, architecting scalable modules across procurement, finance, and inventory.",
-      "Engineered a two-phase paginated query strategy for the Item Master API — replaced multi-table JOINs with parallel sub-queries, cutting response time from 8s to ~225ms (97% improvement).",
-      "Built a full-stack Purchasing module spanning 6 document types (Purchase Request, Purchase Order, GRPO, AP Invoice, AP Credit Memo, Goods Return) with automated journal entry generation reflected in financial statements.",
-      "Designed a config-driven Purchase Reporting engine across 5 document types with multi-dimensional filtering and Excel export — reused as a shared architectural pattern across all report variants.",
+      "Building and maintaining SaaS ERP solutions for Kimly and GoldLite Singapore, based on SAP Business One, working across frontend, backend, database, and business-critical ERP workflows",
+    
+      "Acting as a primary technical point of contact for clients, gathering and translating business requirements into technical solutions and coordinating with the development team for implementation",
+      
+      "Leading a team of 5 developers and serving as primary code reviewer for the Kimly project — coordinating development work, reviewing implementations, and guiding technical decisions across the team", 
+      
+      "Architected a two-phase pagination strategy for the Item Master API, reducing response time from ~8s to ~225ms — a 97% improvement", 
+      
+      "Designed and delivered a complete Purchasing module based on SAP Business One workflows, covering Purchase Requests, Purchase Orders, GRPO, AP Invoices, AP Credit Memos, and Goods Returns, including backend journal entry generation and GL determination", 
+      
+      "Designed a reusable Purchase Reporting engine supporting multiple document types, advanced filtering, and Excel exports",
+      
+      "Built a reusable cron scheduler engine with cross-replica locking to prevent duplicate job execution, powering automated Service Contract lifecycle transitions and renewal reminder emails", 
+      
+      "Implemented configurable rate limiting on unauthenticated endpoints to harden the API against brute-force/abuse"
     ],
     technologies: ["React.js", "TypeScript", "JavaScript", "Ant Design", "Node.js", "Express.js", "PostgreSQL", "Sequelize", "Docker", "Git"],
   },
