@@ -1,6 +1,14 @@
-import { personalInfo, projects } from "@/data/portfolioData";
+import { experiences, personalInfo, projects } from "@/data/portfolioData";
 import { RESUME_URL } from "@/lib/constants";
 import s from "./pro.module.css";
+
+// Bullets per experience id, matching the PDF resume; unlisted roles show their first.
+const HIGHLIGHTS: Record<number, number[]> = {
+  1: [3, 4, 5],
+  2: [0, 1, 3],
+};
+
+const stripPeriod = (text: string) => text.trim().replace(/\.$/, "");
 
 const external = { target: "_blank", rel: "noopener noreferrer" } as const;
 
@@ -70,6 +78,33 @@ const ProPage = () => {
         </Section>
 
         <Ornament />
+
+        <Section id="pro-experience" title="Experience">
+          <ol className={s.list}>
+            {experiences.map((exp) => {
+              const bullets = (HIGHLIGHTS[exp.id] ?? [0])
+                .map((i) => exp.description[i])
+                .filter(Boolean);
+              return (
+                <li key={exp.id} className={s.item}>
+                  <div className={s.itemHead}>
+                    <h3 className={s.itemTitle}>{exp.role}</h3>
+                    <span className={s.meta}>{exp.period}</span>
+                  </div>
+                  <p className={s.itemSub}>
+                    {exp.company}, {exp.location}
+                    {exp.isContract ? " (contract)" : ""}
+                  </p>
+                  <ul className={s.bullets}>
+                    {bullets.map((b) => (
+                      <li key={b}>{stripPeriod(b)}</li>
+                    ))}
+                  </ul>
+                </li>
+              );
+            })}
+          </ol>
+        </Section>
       </main>
     </div>
   );
