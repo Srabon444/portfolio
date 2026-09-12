@@ -8,6 +8,11 @@ const HIGHLIGHTS: Record<number, number[]> = {
   2: [0, 1, 3],
 };
 
+const firstSentence = (text: string) => {
+  const end = text.indexOf(". ");
+  return end === -1 ? text : text.slice(0, end + 1);
+};
+
 const stripPeriod = (text: string) => text.trim().replace(/\.$/, "");
 
 const external = { target: "_blank", rel: "noopener noreferrer" } as const;
@@ -104,6 +109,34 @@ const ProPage = () => {
               );
             })}
           </ol>
+        </Section>
+
+        <Section id="pro-work" title="Selected work">
+          <ul className={s.list}>
+            {projects.map((p) => {
+              const href = p.demoLink || p.codeLink;
+              return (
+                <li key={p.id} className={s.item}>
+                  <div className={s.itemHead}>
+                    <h3 className={s.itemTitle}>
+                      {href ? (
+                        <a href={href} className={s.link} {...external}>
+                          {p.title}
+                        </a>
+                      ) : (
+                        p.title
+                      )}
+                    </h3>
+                    <span className={s.meta}>
+                      {p.work ? "Client work" : "Side project"}
+                    </span>
+                  </div>
+                  <p className={s.desc}>{firstSentence(p.description)}</p>
+                  <p className={s.stack}>{p.technologies.slice(0, 4).join(", ")}</p>
+                </li>
+              );
+            })}
+          </ul>
         </Section>
       </main>
     </div>
