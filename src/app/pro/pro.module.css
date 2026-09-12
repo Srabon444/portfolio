@@ -186,3 +186,15 @@
 .bullets li::marker {
   color: var(--gold);
 }
+
+.desc {
+  max-width: 62ch;
+  margin: 8px 0 0;
+  font-size: 16px;
+}
+
+.stack {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: var(--dust);
+}
