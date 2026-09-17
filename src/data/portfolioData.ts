@@ -168,7 +168,7 @@ export const experiences: Experience[] = [
     role: "Software Engineer II",
     company: "Techzu Ichicode Pte Ltd",
     location: "Singapore",
-    jobType: "Remote",
+    jobType: "Hybrid",
     period: "November 2025 – Present",
     description: [
       "Building and maintaining SaaS ERP solutions for Kimly and GoldLite Singapore, based on SAP Business One, working across frontend, backend, database, and business-critical ERP workflows",

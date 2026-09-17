@@ -109,9 +109,7 @@ export default function Contributions() {
       <Container className="max-w-7xl">
         <SmoothScrollReveal>
           <SectionHeader
-            eyebrow="Open Source"
             title="Contributions"
-            description="My GitHub contribution activity over the past year."
           />
         </SmoothScrollReveal>
 
