@@ -1,5 +1,5 @@
 interface SectionHeaderProps {
-  eyebrow: string;
+  eyebrow?: string;
   title?: string;
   bgWord?: string;   // kept for call-site compat, not rendered
   description?: string;
@@ -13,9 +13,11 @@ export default function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <div className="text-center mb-10 md:mb-14">
-      <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary block mb-3">
-        {eyebrow}
-      </span>
+      {eyebrow && (
+        <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary block mb-3">
+          {eyebrow}
+        </span>
+      )}
       {title && (
         <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 leading-tight">
           {title}
