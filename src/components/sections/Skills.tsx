@@ -136,7 +136,6 @@ export default function Skills() {
           <SectionHeader
             eyebrow="Tech Stack"
             title="Skills & Tools"
-            description="Technologies and tools I use to build production-ready products."
           />
         </SmoothScrollReveal>
 
