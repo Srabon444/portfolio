@@ -70,7 +70,6 @@ export default function Projects() {
           <SectionHeader
             eyebrow="What I've Built"
             title="Projects"
-            description="A selection of projects — from production systems to personal builds."
           />
         </SmoothScrollReveal>
 
