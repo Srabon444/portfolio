@@ -1,4 +1,9 @@
-import { experiences, personalInfo, projects } from "@/data/portfolioData";
+import {
+  educations,
+  experiences,
+  personalInfo,
+  projects,
+} from "@/data/portfolioData";
 import { RESUME_URL } from "@/lib/constants";
 import s from "./pro.module.css";
 
@@ -7,6 +12,14 @@ const HIGHLIGHTS: Record<number, number[]> = {
   1: [3, 4, 5],
   2: [0, 1, 3],
 };
+
+// The skills section of the PDF resume, trimmed to the core stack.
+const CORE_SKILLS: { label: string; items: string[] }[] = [
+  { label: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "TanStack Query", "Zustand", "Ant Design"] },
+  { label: "Backend", items: ["Node.js", "Express", "NestJS", "REST APIs", "JWT", "Firebase"] },
+  { label: "Data", items: ["PostgreSQL", "MongoDB", "Prisma", "Sequelize"] },
+  { label: "Delivery", items: ["Docker", "Git", "Vercel", "Digital Ocean", "Render"] },
+];
 
 const firstSentence = (text: string) => {
   const end = text.indexOf(". ");
@@ -138,6 +151,46 @@ const ProPage = () => {
             })}
           </ul>
         </Section>
+
+        <Section id="pro-skills" title="Skills">
+          <dl className={s.skills}>
+            {CORE_SKILLS.map((row) => (
+              <div key={row.label} className={s.skillRow}>
+                <dt className={s.skillLabel}>{row.label}</dt>
+                <dd>{row.items.join(", ")}</dd>
+              </div>
+            ))}
+          </dl>
+        </Section>
+
+        <Section id="pro-education" title="Education">
+          <ul className={s.list}>
+            {educations.map((e) => (
+              <li key={e.id} className={s.item}>
+                <div className={s.itemHead}>
+                  <h3 className={s.itemTitle}>{e.degree}</h3>
+                  <span className={s.meta}>{e.period}</span>
+                </div>
+                <p className={s.itemSub}>United International University, Dhaka</p>
+              </li>
+            ))}
+          </ul>
+        </Section>
+
+        <Section id="pro-contact" title="Contact">
+          <p className={s.prose}>
+            I&apos;m open to remote roles. Email is the fastest way to reach me.
+          </p>
+          <a href={`mailto:${personalInfo.email}`} className={`${s.link} ${s.email}`}>
+            {personalInfo.email}
+          </a>
+        </Section>
+
+        <Ornament />
+
+        <footer className={s.footer}>
+          © {new Date().getFullYear()} {personalInfo.name}
+        </footer>
       </main>
     </div>
   );

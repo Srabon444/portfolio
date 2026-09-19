@@ -198,3 +198,43 @@
   font-size: 14px;
   color: var(--dust);
 }
+
+.skills {
+  margin: 0;
+}
+
+.skillRow {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 4px 24px;
+  font-size: 16px;
+}
+
+.skillRow + .skillRow {
+  margin-top: 12px;
+}
+
+.skillRow dd {
+  margin: 0;
+}
+
+.skillLabel {
+  color: var(--dust);
+}
+
+.email {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: var(--font-caslon), Georgia, serif;
+  font-size: clamp(24px, 4vw, 34px);
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--dust);
+}
