@@ -6,6 +6,7 @@ import { GeistMono } from "geist/font/mono";
 import LayoutProvider from "@/provider/LayoutProvider";
 import { Oswald, Poppins } from 'next/font/google';
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const oswald = Oswald({
   weight: ['600'],
@@ -51,6 +52,7 @@ export default function RootLayout({
           <LayoutProvider>{children}</LayoutProvider>
         </ThemeProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
