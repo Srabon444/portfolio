@@ -41,7 +41,6 @@ export const personalInfo = {
   website: "https://www.ashraful.uk",
   availability: "✦ Available for exciting opportunities ✦",
   bio: "Full-Stack Software Engineer specializing in React, Next.js, and Node.js ecosystems. I build scalable, production-ready applications with a focus on performance, clean architecture, and great user experience. Based in Dhaka — open to remote opportunities worldwide.",
-  gitlab: "https://gitlab.com/users/srabon444/starred",
   github: "https://github.com/Srabon444",
   linkedin: "https://www.linkedin.com/in/ashraful-islam-rabby/",
   discord: "https://discord.com/users/codesmmith01",
