@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ashraful Islam — Portfolio
 
-## Getting Started
+Personal portfolio website of Ashraful Islam, a Full-Stack Software Engineer based in Dhaka, Bangladesh.
 
-First, run the development server:
+Live site: https://ashraful.uk
+
+## Sections
+
+- **Hero**: intro and social links
+- **Experience**: work history and education timeline
+- **Skills**: frontend, backend, databases, DevOps and tools
+- **Projects**: selected projects with demo and code links
+- **Contributions**: GitHub contribution calendar
+- **Quote**: a random inspirational quote on each page load
+- **Contact**: contact form (EmailJS) and social links
+
+The navigation bar links to the resume. The site supports light and dark themes and smooth scrolling between sections.
+
+## Tech stack
+
+- [Next.js](https://nextjs.org) 15 (App Router) with React 19 and TypeScript
+- [Tailwind CSS](https://tailwindcss.com) 4
+- [next-themes](https://github.com/pacocoursey/next-themes) for theming
+- [lottie-react](https://github.com/Gamote/lottie-react) for animation
+- [EmailJS](https://www.emailjs.com) for the contact form
+- [react-github-calendar](https://github.com/grubersjoe/react-github-calendar) for the contribution graph
+- [Vercel](https://vercel.com) for hosting, with Vercel Analytics and Speed Insights
+
+## Getting started
+
+Requirements: a current Node.js LTS and npm.
 
 ```bash
+git clone https://github.com/Srabon444/portfolio.git
+cd portfolio
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 to see the site.
 
-You can start editing the page by modifying `app/Home.tsx`. The page auto-updates as you edit the file.
+### Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The contact form needs EmailJS credentials. Create a `.env.local` file in the project root:
 
-## Learn More
+```bash
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+```
 
-To learn more about Next.js, take a look at the following resources:
+Without them the site still runs, but sending a message from the contact form will fail.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Start the dev server (Turbopack) |
+| `npm run build` | Create a production build |
+| `npm run start` | Serve the production build |
+| `npm run lint` | Run ESLint |
 
-## Deploy on Vercel
+## Project structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+  app/                  Next.js app router (layout, page, global styles, manifest)
+  components/
+    sections/           Page sections (Hero, Experience, Skills, Projects, ...)
+    shared/             Reusable UI (navigation, footer, theme toggle, icons, ...)
+  data/                 Content: portfolioData.ts, quotesData.ts, Lottie animation
+  hooks/                Custom hooks
+  lib/                  Constants and helpers (smooth scroll, scroll observer)
+  provider/             Theme and layout providers
+public/                 Images and static assets
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To change the site content (bio, experience, skills, projects, links), edit `src/data/portfolioData.ts`. Shared values such as section ids and the resume URL live in `src/lib/constants.ts`.
+
+## Deployment
+
+The site is deployed on Vercel from this repository. Pull requests get their own preview deployment.
