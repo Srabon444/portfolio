@@ -7,7 +7,7 @@ import SectionHeader from "../shared/SectionHeader";
 import { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import { z } from "zod";
-import { GitHubIcon, GitLabIcon, LinkedInIcon, DiscordIcon } from "../shared/SocialIcons";
+import { GitHubIcon, LinkedInIcon, DiscordIcon } from "../shared/SocialIcons";
 import { SECTION_IDS } from "@/lib/constants";
 
 const contactSchema = z.object({
@@ -55,7 +55,6 @@ const contactDetails = [
 
 const socialLinks = [
   { href: personalInfo.github, label: "GitHub", Icon: GitHubIcon },
-  { href: personalInfo.gitlab, label: "GitLab", Icon: GitLabIcon },
   { href: personalInfo.linkedin, label: "LinkedIn", Icon: LinkedInIcon },
   { href: personalInfo.discord, label: "Discord", Icon: DiscordIcon },
 ];

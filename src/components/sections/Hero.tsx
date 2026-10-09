@@ -9,7 +9,7 @@ import animationData from "@/data/lottie/development.json";
 import { smoothScrollTo } from "@/lib/smoothScroll";
 import { getYearsOfExperience } from "@/lib/utils";
 import { SECTION_IDS, TYPEWRITER_CONFIG } from "@/lib/constants";
-import { GitHubIcon, GitLabIcon, LinkedInIcon, DiscordIcon, EmailIcon } from "../shared/SocialIcons";
+import { GitHubIcon, LinkedInIcon, DiscordIcon, EmailIcon } from "../shared/SocialIcons";
 import { useState, useEffect } from "react";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
@@ -127,7 +127,6 @@ export default function Hero() {
           <SmoothScrollReveal delay={0.35} duration={0.5}>
             <div className="flex items-center gap-2 justify-center lg:justify-start">
               {[
-                { href: personalInfo.gitlab, label: "GitLab", Icon: GitLabIcon },
                 { href: personalInfo.github, label: "GitHub", Icon: GitHubIcon },
                 { href: personalInfo.linkedin, label: "LinkedIn", Icon: LinkedInIcon },
                 { href: personalInfo.discord, label: "Discord", Icon: DiscordIcon },
