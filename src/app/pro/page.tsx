@@ -3,28 +3,20 @@ import {
   experiences,
   personalInfo,
   projects,
+  skills,
 } from "@/data/portfolioData";
 import { RESUME_URL } from "@/lib/constants";
+import { getYearsOfExperience } from "@/lib/utils";
 import s from "./pro.module.css";
 
-// Bullets per experience id, matching the PDF resume; unlisted roles show their first.
-const HIGHLIGHTS: Record<number, number[]> = {
-  1: [3, 4, 5],
-  2: [0, 1, 3],
-};
-
-// The skills section of the PDF resume, trimmed to the core stack.
-const CORE_SKILLS: { label: string; items: string[] }[] = [
-  { label: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "TanStack Query", "Zustand", "Ant Design"] },
-  { label: "Backend", items: ["Node.js", "Express", "NestJS", "REST APIs", "JWT", "Firebase"] },
-  { label: "Data", items: ["PostgreSQL", "MongoDB", "Prisma", "Sequelize"] },
-  { label: "Delivery", items: ["Docker", "Git", "Vercel", "Digital Ocean", "Render"] },
+// Same groups and order as the main site's Skills section.
+const SKILL_GROUPS = [
+  { label: "Frontend", items: skills.frontend },
+  { label: "Backend", items: skills.backend },
+  { label: "Databases", items: skills.databases },
+  { label: "DevOps", items: skills.devops },
+  { label: "Tools", items: skills.tools },
 ];
-
-const firstSentence = (text: string) => {
-  const end = text.indexOf(". ");
-  return end === -1 ? text : text.slice(0, end + 1);
-};
 
 const stripPeriod = (text: string) => text.trim().replace(/\.$/, "");
 
@@ -60,17 +52,20 @@ const Section = ({
 
 const ProPage = () => {
   const [ambufast] = projects;
+  // ponytail: static page, so the years figure is fixed at build and refreshes on each deploy
+  const years = getYearsOfExperience();
 
   return (
     <div className={s.page}>
       <main className={s.wrap}>
         <header className={s.hero}>
           <h1 className={s.name}>{personalInfo.name}</h1>
-          <p className={s.role}>Software engineer in {personalInfo.location}</p>
+          <p className={s.role}>Full-stack software engineer in {personalInfo.location}</p>
           <nav className={s.links} aria-label="Contact">
             <a href={`mailto:${personalInfo.email}`} className={s.link}>Email</a>
             <a href={personalInfo.github} className={s.link} {...external}>GitHub</a>
             <a href={personalInfo.linkedin} className={s.link} {...external}>LinkedIn</a>
+            <a href={personalInfo.discord} className={s.link} {...external}>Discord</a>
             <a href={RESUME_URL} className={s.link} {...external}>Resume</a>
           </nav>
         </header>
@@ -78,14 +73,14 @@ const ProPage = () => {
         <Section id="pro-about" title="About">
           <div className={s.prose}>
             <p>
-              I build business software end to end: React on the front, Node.js
-              and PostgreSQL behind it, and the data model that holds it
-              together.
+              I&apos;ve spent {years} years building production web
+              applications end to end: React on the front, Node.js and PostgreSQL
+              behind it, and the data model that holds it together.
             </p>
             <p>
               Right now I&apos;m a Software Engineer II at Techzu Ichicode,
-              building SAP Business One based ERP software for clients in
-              Singapore and leading a team of five on one of those projects.
+              building SAP Business One based ERP software for Fortune 500
+              clients in Singapore and leading a team of five on one of those projects.
               Before that I built the booking and dispatch system behind{" "}
               <a href={ambufast.demoLink} className={s.link} {...external}>
                 Ambufast, Bangladesh&apos;s largest ambulance booking platform
@@ -99,62 +94,55 @@ const ProPage = () => {
 
         <Section id="pro-experience" title="Experience">
           <ol className={s.list}>
-            {experiences.map((exp) => {
-              const bullets = (HIGHLIGHTS[exp.id] ?? [0])
-                .map((i) => exp.description[i])
-                .filter(Boolean);
-              return (
-                <li key={exp.id} className={s.item}>
-                  <div className={s.itemHead}>
-                    <h3 className={s.itemTitle}>{exp.role}</h3>
-                    <span className={s.meta}>{exp.period}</span>
-                  </div>
-                  <p className={s.itemSub}>
-                    {exp.company}, {exp.location}
-                    {exp.isContract ? " (contract)" : ""}
-                  </p>
-                  <ul className={s.bullets}>
-                    {bullets.map((b) => (
-                      <li key={b}>{stripPeriod(b)}</li>
-                    ))}
-                  </ul>
-                </li>
-              );
-            })}
+            {experiences.map((exp) => (
+              <li key={exp.id} className={s.item}>
+                <div className={s.itemHead}>
+                  <h3 className={s.itemTitle}>{exp.role}</h3>
+                  <span className={s.meta}>{exp.period}</span>
+                </div>
+                <p className={s.itemSub}>
+                  {exp.company}, {exp.location} ({exp.jobType.toLowerCase()}
+                  {exp.isContract ? ", contract" : ""})
+                </p>
+                <ul className={s.bullets}>
+                  {exp.description.map((b) => (
+                    <li key={b}>{stripPeriod(b)}</li>
+                  ))}
+                </ul>
+                <p className={s.stack}>{exp.technologies.join(", ")}</p>
+              </li>
+            ))}
           </ol>
         </Section>
 
         <Section id="pro-work" title="Selected work">
           <ul className={s.list}>
-            {projects.map((p) => {
-              const href = p.demoLink || p.codeLink;
-              return (
-                <li key={p.id} className={s.item}>
-                  <div className={s.itemHead}>
-                    <h3 className={s.itemTitle}>
-                      {href ? (
-                        <a href={href} className={s.link} {...external}>
-                          {p.title}
-                        </a>
-                      ) : (
-                        p.title
-                      )}
-                    </h3>
-                    <span className={s.meta}>
-                      {p.work ? "Client work" : "Side project"}
-                    </span>
-                  </div>
-                  <p className={s.desc}>{firstSentence(p.description)}</p>
-                  <p className={s.stack}>{p.technologies.slice(0, 4).join(", ")}</p>
-                </li>
-              );
-            })}
+            {projects.map((p) => (
+              <li key={p.id} className={s.item}>
+                <div className={s.itemHead}>
+                  <h3 className={s.itemTitle}>{p.title}</h3>
+                  <span className={s.meta}>
+                    {p.work ? "Client work" : "Personal project"}
+                  </span>
+                </div>
+                <p className={s.desc}>{p.description}</p>
+                <p className={s.stack}>{p.technologies.join(", ")}</p>
+                <p className={s.projectLinks}>
+                  {p.demoLink && (
+                    <a href={p.demoLink} className={s.link} {...external}>Live demo</a>
+                  )}
+                  {p.codeLink && (
+                    <a href={p.codeLink} className={s.link} {...external}>Source code</a>
+                  )}
+                </p>
+              </li>
+            ))}
           </ul>
         </Section>
 
         <Section id="pro-skills" title="Skills">
           <dl className={s.skills}>
-            {CORE_SKILLS.map((row) => (
+            {SKILL_GROUPS.map((row) => (
               <div key={row.label} className={s.skillRow}>
                 <dt className={s.skillLabel}>{row.label}</dt>
                 <dd>{row.items.join(", ")}</dd>
@@ -171,7 +159,7 @@ const ProPage = () => {
                   <h3 className={s.itemTitle}>{e.degree}</h3>
                   <span className={s.meta}>{e.period}</span>
                 </div>
-                <p className={s.itemSub}>United International University, Dhaka</p>
+                <p className={s.itemSub}>United International University (UIU), Dhaka</p>
               </li>
             ))}
           </ul>
@@ -179,17 +167,24 @@ const ProPage = () => {
 
         <Section id="pro-contact" title="Contact">
           <p className={s.prose}>
-            I&apos;m open to remote roles. Email is the fastest way to reach me.
+            I&apos;m open to remote roles worldwide. Email is the fastest way to
+            reach me.
           </p>
           <a href={`mailto:${personalInfo.email}`} className={`${s.link} ${s.email}`}>
             {personalInfo.email}
           </a>
+          <p className={s.contactMeta}>
+            <a href={`tel:${personalInfo.phone.replace(/\s/g, "")}`} className={s.link}>
+              {personalInfo.phone}
+            </a>
+            <span>{personalInfo.location}</span>
+          </p>
         </Section>
 
         <Ornament />
 
         <footer className={s.footer}>
-          © {new Date().getFullYear()} {personalInfo.name}
+          © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
         </footer>
       </main>
     </div>
