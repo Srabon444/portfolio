@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Libre_Caslon_Display } from "next/font/google";
+import { experiences, personalInfo } from "@/data/portfolioData";
 
 // Hidden route: no link from the main site, and noindex keeps it out of search.
 
@@ -11,8 +12,8 @@ const caslon = Libre_Caslon_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Ashraful Islam, Software Engineer",
-  description: "Software engineer building business software and web platforms.",
+  title: `${personalInfo.name}, ${experiences[0].role}`,
+  description: `${experiences[0].role} at ${experiences[0].company}, building ERP software and web platforms.`,
   robots: { index: false, follow: false },
 };
 
