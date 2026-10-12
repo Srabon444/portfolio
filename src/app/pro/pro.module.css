@@ -1,123 +1,143 @@
-/* Self-contained palette so the page looks the same whatever theme the main
-   site last stored: warm paper background, ink text, one quiet green accent. */
+/* Own palette so the main site's stored theme never leaks in. */
 .page {
-  --paper: #f6f3ec;
-  --ink: #1d1a16;
-  --muted: #5c5449;
-  --faint: #756c60;
-  --rule: #e2dbcf;
-  --accent: #2f6b4f;
-  --chip: #ece6da;
+  --ink: #131c28;
+  --parchment: #f2eee3;
+  --dust: #a8a08c;
+  --gold: #c99a2e;
+  --rule: rgba(201, 154, 46, 0.2);
 
+  position: relative;
   min-height: 100vh;
-  background-color: var(--paper);
-  background-image: radial-gradient(#ddd5c6 1px, transparent 1px);
-  background-size: 22px 22px;
-  color: var(--ink);
+  background-color: var(--ink);
+  color: var(--parchment);
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* Fine paper grain over the whole page. */
+.page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Match the overscroll area to the page instead of the main site's light body. */
+:global(body):has(.page) {
+  background-color: #131c28;
+}
+
+.page ::selection {
+  background: var(--gold);
+  color: var(--ink);
 }
 
 .wrap {
-  max-width: 680px;
+  position: relative;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 88px 24px 56px;
+  padding: 120px 40px 48px;
 }
 
-.serif,
-.page h1,
-.page h2,
-.page h3 {
-  font-family: var(--font-newsreader), Georgia, "Times New Roman", serif;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-}
-
-.mono {
-  font-family: var(--font-geist-mono), ui-monospace, monospace;
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  color: var(--faint);
-}
-
-.eyebrow {
-  text-transform: uppercase;
+.hero {
+  margin-bottom: 88px;
 }
 
 .name {
-  margin: 10px 0 0;
-  font-size: 48px;
-  line-height: 1.05;
+  margin: 0;
+  font-family: var(--font-caslon), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(52px, 9vw, 104px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
 }
 
 .role {
-  margin: 6px 0 0;
-  font-size: 22px;
-  font-style: italic;
-  color: var(--muted);
-}
-
-.bio {
-  margin: 24px 0 0;
-  color: var(--ink);
-}
-
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 20px;
-  font-size: 14px;
-  color: var(--muted);
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 9999px;
-  background: var(--accent);
-  box-shadow: 0 0 0 4px rgba(47, 107, 79, 0.15);
+  margin: 20px 0 0;
+  font-size: 19px;
+  color: var(--dust);
 }
 
 .links {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px 20px;
-  margin-top: 20px;
-  font-size: 15px;
+  gap: 8px 28px;
+  margin-top: 32px;
+  font-size: 16px;
 }
 
-.link {
-  color: var(--ink);
-  text-decoration: underline;
-  text-decoration-color: var(--rule);
-  text-underline-offset: 4px;
-  text-decoration-thickness: 1px;
-  transition: text-decoration-color 0.15s ease, color 0.15s ease;
-}
-
-.link:hover {
-  color: var(--accent);
-  text-decoration-color: var(--accent);
-}
-
+/* Label column on the left, content on the right; stacks on small screens. */
 .section {
-  margin-top: 64px;
-}
-
-.sectionHead {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 16px 40px;
+  margin-top: 72px;
 }
 
 .sectionTitle {
   margin: 0;
-  font-size: 26px;
+  font-family: var(--font-caslon), Georgia, serif;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.prose {
+  max-width: 62ch;
+  font-size: 19px;
+  line-height: 1.75;
+}
+
+.prose p {
+  margin: 0;
+}
+
+.prose p + p {
+  margin-top: 20px;
+}
+
+.link {
+  color: var(--parchment);
+  text-decoration: none;
+  background-image: linear-gradient(var(--gold), var(--gold));
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 0% 1px;
+  box-shadow: inset 0 -1px 0 var(--rule);
+  transition: background-size 0.3s ease, color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--gold);
+  background-size: 100% 1px;
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 72px 0 0;
+  color: var(--gold);
+}
+
+.ornamentLine {
+  width: 64px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold));
+}
+
+.ornamentLine:last-child {
+  background: linear-gradient(to left, transparent, var(--gold));
 }
 
 .list {
@@ -126,13 +146,8 @@
   padding: 0;
 }
 
-.item {
-  padding: 22px 0;
-  border-bottom: 1px solid var(--rule);
-}
-
-.item:last-child {
-  border-bottom: none;
+.item + .item {
+  margin-top: 40px;
 }
 
 .itemHead {
@@ -140,91 +155,144 @@
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: 4px 16px;
+  gap: 4px 24px;
 }
 
 .itemTitle {
   margin: 0;
-  font-size: 20px;
+  font-family: var(--font-caslon), Georgia, serif;
+  font-weight: 400;
+  font-size: 22px;
   line-height: 1.3;
+}
+
+.meta {
+  font-size: 14px;
+  color: var(--dust);
+  font-variant-numeric: tabular-nums;
 }
 
 .itemSub {
   margin: 2px 0 0;
-  font-size: 14px;
-  color: var(--muted);
+  font-size: 15px;
+  color: var(--dust);
 }
 
 .bullets {
-  margin: 10px 0 0;
+  margin: 14px 0 0;
   padding-left: 18px;
-  color: var(--ink);
-  font-size: 15px;
+  list-style: disc;
+  font-size: 16px;
 }
 
-.bullets li {
-  margin-top: 4px;
+.bullets li + li {
+  margin-top: 8px;
 }
 
 .bullets li::marker {
-  color: var(--faint);
+  color: var(--gold);
 }
 
 .desc {
+  max-width: 62ch;
   margin: 8px 0 0;
-  font-size: 15px;
+  font-size: 16px;
 }
 
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 12px;
+.stack {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: var(--dust);
 }
 
-.tag {
-  padding: 2px 8px;
-  border-radius: 4px;
-  background: var(--chip);
-  color: var(--muted);
-  font-size: 11px;
-}
-
-.kind {
-  color: var(--accent);
+.skills {
+  margin: 0;
 }
 
 .skillRow {
   display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 4px 16px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--rule);
-  font-size: 15px;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 4px 24px;
+  font-size: 16px;
 }
 
-.skillRow:last-child {
-  border-bottom: none;
+.skillRow + .skillRow {
+  margin-top: 12px;
+}
+
+.skillRow dd {
+  margin: 0;
+}
+
+.skillLabel {
+  color: var(--dust);
+}
+
+.email {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: var(--font-caslon), Georgia, serif;
+  font-size: clamp(24px, 4vw, 34px);
+  line-height: 1.3;
+  overflow-wrap: anywhere;
 }
 
 .footer {
-  margin-top: 72px;
-  padding-top: 20px;
-  border-top: 1px solid var(--rule);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 8px;
+  margin-top: 32px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--dust);
 }
 
-@media (max-width: 560px) {
+/* One load sequence: the name, then the line under it, then the links. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+.name,
+.role,
+.links {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.role {
+  animation-delay: 0.12s;
+}
+
+.links {
+  animation-delay: 0.24s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .name,
+  .role,
+  .links {
+    animation: none;
+  }
+}
+
+@media (max-width: 760px) {
   .wrap {
-    padding-top: 56px;
+    padding: 72px 20px 40px;
   }
-  .name {
-    font-size: 38px;
+  .hero {
+    margin-bottom: 56px;
   }
+  .section {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 56px;
+  }
+  .prose {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 420px) {
   .skillRow {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
   }
 }
