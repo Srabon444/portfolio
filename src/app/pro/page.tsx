@@ -52,6 +52,7 @@ const Section = ({
 
 const ProPage = () => {
   const [ambufast] = projects;
+  const [current] = experiences;
   // ponytail: static page, so the years figure is fixed at build and refreshes on each deploy
   const years = getYearsOfExperience();
 
@@ -60,7 +61,9 @@ const ProPage = () => {
       <main className={s.wrap}>
         <header className={s.hero}>
           <h1 className={s.name}>{personalInfo.name}</h1>
-          <p className={s.role}>Full-stack software engineer in {personalInfo.location}</p>
+          <p className={s.role}>
+            {current.role} at {current.company}
+          </p>
           <nav className={s.links} aria-label="Contact">
             <a href={`mailto:${personalInfo.email}`} className={s.link}>Email</a>
             <a href={personalInfo.github} className={s.link} {...external}>GitHub</a>
@@ -78,9 +81,9 @@ const ProPage = () => {
               behind it, and the data model that holds it together.
             </p>
             <p>
-              Right now I&apos;m a Software Engineer II at Techzu Ichicode,
-              building SAP Business One based ERP software for Fortune 500
-              clients in Singapore and leading a team of five on one of those projects.
+              At Techzu Ichicode I build SAP Business One based ERP software
+              for Fortune 500 clients in Singapore, and I lead a team of five on
+              one of those projects.
               Before that I built the booking and dispatch system behind{" "}
               <a href={ambufast.demoLink} className={s.link} {...external}>
                 Ambufast, Bangladesh&apos;s largest ambulance booking platform
