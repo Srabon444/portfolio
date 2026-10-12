@@ -296,3 +296,21 @@
     gap: 0;
   }
 }
+
+.projectLinks,
+.contactMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 24px;
+  margin: 10px 0 0;
+  font-size: 15px;
+}
+
+.contactMeta {
+  margin-top: 14px;
+  color: var(--dust);
+}
+
+.bullets + .stack {
+  margin-top: 14px;
+}
