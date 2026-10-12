@@ -8,17 +8,20 @@ import { RESUME_URL } from "@/lib/constants";
 import s from "./pro.module.css";
 
 // A trimmed, recruiter-friendly view of the same data the main site uses.
-// Which experience bullets to show, by experience id; others show the first three.
+// Which experience bullets to show, by experience id, picked to match the
+// highlights on the PDF resume; others show the first three.
 const HIGHLIGHTS: Record<number, number[]> = {
-  1: [2, 3, 4],
+  1: [3, 4, 5],
+  2: [0, 1, 3],
 };
 
+// Mirrors the skills section of the PDF resume, trimmed to the core stack.
 const CORE_SKILLS: { label: string; items: string[] }[] = [
-  { label: "Languages", items: ["TypeScript", "JavaScript", "SQL"] },
-  { label: "Frontend", items: ["React", "Next.js", "Svelte", "Tailwind CSS", "TanStack Query"] },
-  { label: "Backend", items: ["Node.js", "Express", "NestJS", "REST APIs", "Socket.io"] },
-  { label: "Data", items: ["PostgreSQL", "MongoDB", "Redis", "Prisma", "Sequelize", "Supabase"] },
-  { label: "Infra", items: ["Docker", "Git", "Vercel", "Digital Ocean", "Tauri"] },
+  { label: "Languages", items: ["TypeScript", "JavaScript"] },
+  { label: "Frontend", items: ["React", "Next.js", "Tailwind CSS", "TanStack Query", "Zustand", "Ant Design"] },
+  { label: "Backend", items: ["Node.js", "Express", "NestJS", "REST APIs", "JWT", "Firebase"] },
+  { label: "Data", items: ["PostgreSQL", "MongoDB", "Prisma", "Sequelize"] },
+  { label: "Infra", items: ["Docker", "Git", "Vercel", "Digital Ocean", "Render"] },
 ];
 
 const firstSentence = (text: string) => {
