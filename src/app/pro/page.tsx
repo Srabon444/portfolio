@@ -160,10 +160,10 @@ const ProPage = () => {
         </Section>
 
         <Section id="pro-skills" title="Skills">
-          <dl className={s.skills}>
+          <dl className={s.facts}>
             {SKILL_GROUPS.map((row) => (
-              <div key={row.label} className={s.skillRow}>
-                <dt className={s.skillLabel}>{row.label}</dt>
+              <div key={row.label} className={s.fact}>
+                <dt className={s.factLabel}>{row.label}</dt>
                 <dd>{row.items.join(", ")}</dd>
               </div>
             ))}
@@ -186,18 +186,31 @@ const ProPage = () => {
 
         <Section id="pro-contact" title="Contact">
           <p className={s.prose}>
-            I&apos;m open to remote roles worldwide. Email is the fastest way to
-            reach me.
+            I&apos;m open to onsite, hybrid and remote roles worldwide. Email is
+            the fastest way to reach me.
           </p>
-          <a href={`mailto:${personalInfo.email}`} className={`${s.link} ${s.email}`}>
-            {personalInfo.email}
-          </a>
-          <p className={s.contactMeta}>
-            <a href={`tel:${personalInfo.phone.replace(/\s/g, "")}`} className={s.link}>
-              {personalInfo.phone}
-            </a>
-            <span>{personalInfo.location}</span>
-          </p>
+          <dl className={`${s.facts} ${s.contactFacts}`}>
+            <div className={s.fact}>
+              <dt className={s.factLabel}>Email</dt>
+              <dd>
+                <a href={`mailto:${personalInfo.email}`} className={s.link}>
+                  {personalInfo.email}
+                </a>
+              </dd>
+            </div>
+            <div className={s.fact}>
+              <dt className={s.factLabel}>Phone</dt>
+              <dd>
+                <a href={`tel:${personalInfo.phone.replace(/\s/g, "")}`} className={s.link}>
+                  {personalInfo.phone}
+                </a>
+              </dd>
+            </div>
+            <div className={s.fact}>
+              <dt className={s.factLabel}>Location</dt>
+              <dd>{personalInfo.location}</dd>
+            </div>
+          </dl>
         </Section>
 
         <Ornament />
