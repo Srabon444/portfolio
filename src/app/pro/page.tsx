@@ -22,15 +22,27 @@ const stripPeriod = (text: string) => text.trim().replace(/\.$/, "");
 
 const external = { target: "_blank", rel: "noopener noreferrer" } as const;
 
+const Ring = () => (
+  <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden>
+    <circle cx="10" cy="10" r="2" fill="currentColor" />
+    <circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" strokeWidth="0.6" />
+  </svg>
+);
+
 const Ornament = () => (
   <div className={s.ornament} aria-hidden>
     <span className={s.ornamentLine} />
-    <svg width="20" height="20" viewBox="0 0 20 20">
-      <circle cx="10" cy="10" r="2" fill="currentColor" />
-      <circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" strokeWidth="0.6" />
-    </svg>
+    <Ring />
     <span className={s.ornamentLine} />
   </div>
+);
+
+const Chips = ({ items }: { items: string[] }) => (
+  <ul className={s.chips}>
+    {items.map((item) => (
+      <li key={item}>{item}</li>
+    ))}
+  </ul>
 );
 
 const Section = ({
@@ -96,23 +108,27 @@ const ProPage = () => {
         <Ornament />
 
         <Section id="pro-experience" title="Experience">
-          <ol className={s.list}>
+          <ol className={s.timeline}>
             {experiences.map((exp) => (
-              <li key={exp.id} className={s.item}>
-                <div className={s.itemHead}>
-                  <h3 className={s.itemTitle}>{exp.role}</h3>
-                  <span className={s.meta}>{exp.period}</span>
+              <li key={exp.id} className={s.job}>
+                <span className={s.marker}>
+                  <Ring />
+                </span>
+                <div className={s.jobHead}>
+                  <h3 className={s.company}>{exp.company}</h3>
+                  <p className={s.position}>{exp.role}</p>
+                  <span className={s.period}>{exp.period}</span>
+                  <span className={s.where}>
+                    {exp.location}, {exp.jobType.toLowerCase()}
+                    {exp.isContract ? ", contract" : ""}
+                  </span>
                 </div>
-                <p className={s.itemSub}>
-                  {exp.company}, {exp.location} ({exp.jobType.toLowerCase()}
-                  {exp.isContract ? ", contract" : ""})
-                </p>
                 <ul className={s.bullets}>
                   {exp.description.map((b) => (
                     <li key={b}>{stripPeriod(b)}</li>
                   ))}
                 </ul>
-                <p className={s.stack}>{exp.technologies.join(", ")}</p>
+                <Chips items={exp.technologies} />
               </li>
             ))}
           </ol>
@@ -121,15 +137,15 @@ const ProPage = () => {
         <Section id="pro-work" title="Selected work">
           <ul className={s.list}>
             {projects.map((p) => (
-              <li key={p.id} className={s.item}>
+              <li key={p.id} className={s.project}>
                 <div className={s.itemHead}>
-                  <h3 className={s.itemTitle}>{p.title}</h3>
+                  <h3 className={s.company}>{p.title}</h3>
                   <span className={s.meta}>
                     {p.work ? "Client work" : "Personal project"}
                   </span>
                 </div>
                 <p className={s.desc}>{p.description}</p>
-                <p className={s.stack}>{p.technologies.join(", ")}</p>
+                <Chips items={p.technologies} />
                 <p className={s.projectLinks}>
                   {p.demoLink && (
                     <a href={p.demoLink} className={s.link} {...external}>Live demo</a>
