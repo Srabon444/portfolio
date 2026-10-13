@@ -199,35 +199,35 @@
   font-size: 16px;
 }
 
-.skills {
+/* Label and value rows, used by Skills and Contact. */
+.facts {
   margin: 0;
 }
 
-.skillRow {
+.fact {
   display: grid;
   grid-template-columns: 110px minmax(0, 1fr);
   gap: 4px 24px;
   font-size: 16px;
 }
 
-.skillRow + .skillRow {
+.fact + .fact {
   margin-top: 12px;
 }
 
-.skillRow dd {
+.fact dd {
   margin: 0;
 }
 
-.skillLabel {
+.factLabel {
   color: var(--dust);
 }
 
-.email {
-  display: inline-block;
-  margin-top: 16px;
-  font-family: var(--font-caslon), Georgia, serif;
-  font-size: clamp(24px, 4vw, 34px);
-  line-height: 1.3;
+.contactFacts {
+  margin-top: 24px;
+}
+
+.contactFacts dd {
   overflow-wrap: anywhere;
 }
 
@@ -285,24 +285,18 @@
 }
 
 @media (max-width: 420px) {
-  .skillRow {
+  .fact {
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
   }
 }
 
-.projectLinks,
-.contactMeta {
+.projectLinks {
   display: flex;
   flex-wrap: wrap;
   gap: 6px 24px;
   margin: 10px 0 0;
   font-size: 15px;
-}
-
-.contactMeta {
-  margin-top: 14px;
-  color: var(--dust);
 }
 
 /* Career timeline: a gold rail with the ornament ring marking each job. */
