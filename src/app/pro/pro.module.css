@@ -199,12 +199,6 @@
   font-size: 16px;
 }
 
-.stack {
-  margin: 6px 0 0;
-  font-size: 14px;
-  color: var(--dust);
-}
-
 .skills {
   margin: 0;
 }
@@ -311,6 +305,138 @@
   color: var(--dust);
 }
 
-.bullets + .stack {
-  margin-top: 14px;
+/* Career timeline: a gold rail with the ornament ring marking each job. */
+.timeline {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 40px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 9.5px;
+  top: 14px;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--rule) 85%, transparent);
+}
+
+.job {
+  position: relative;
+}
+
+.job + .job {
+  margin-top: 56px;
+}
+
+.marker {
+  position: absolute;
+  left: -40px;
+  top: 6px;
+  display: flex;
+  background: var(--ink);
+  color: var(--gold);
+}
+
+.company {
+  margin: 0;
+  font-family: var(--font-caslon), Georgia, serif;
+  font-weight: 400;
+  font-size: 27px;
+  line-height: 1.25;
+}
+
+/* Desktop: company and dates on one row, role and place under them. */
+.jobHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "company period"
+    "position where";
+  align-items: baseline;
+  column-gap: 24px;
+}
+
+.company {
+  grid-area: company;
+}
+
+.period {
+  grid-area: period;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+
+.position {
+  grid-area: position;
+  margin: 4px 0 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--gold);
+}
+
+.where {
+  grid-area: where;
+  text-align: right;
+  font-size: 14px;
+  color: var(--dust);
+}
+
+.project:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.project {
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+}
+
+.project + .project {
+  margin-top: 40px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chips li {
+  padding: 2px 9px;
+  border: 1px solid rgba(201, 154, 46, 0.3);
+  border-radius: 3px;
+  background: rgba(201, 154, 46, 0.07);
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(242, 238, 227, 0.88);
+}
+
+@media (max-width: 760px) {
+  .timeline {
+    padding-left: 32px;
+  }
+  .marker {
+    left: -32px;
+  }
+  .company {
+    font-size: 24px;
+  }
+  .jobHead {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "company" "position" "period" "where";
+  }
+  .period {
+    margin-top: 6px;
+    font-size: 14px;
+    color: var(--dust);
+  }
+  .where {
+    text-align: left;
+  }
 }
