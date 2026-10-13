@@ -170,11 +170,11 @@ export const experiences: Experience[] = [
     jobType: "Hybrid",
     period: "November 2025 – Present",
     description: [
-      "Building and maintaining SaaS ERP solutions for Kimly and GoldLite Singapore, based on SAP Business One, working across frontend, backend, database, and business-critical ERP workflows",
+      "Building and maintaining SaaS ERP solutions for BDO clients in Singapore, based on SAP Business One, working across frontend, backend, database, and business-critical ERP workflows",
     
       "Acting as a primary technical point of contact for clients, gathering and translating business requirements into technical solutions and coordinating with the development team for implementation",
       
-      "Leading a team of 5 developers and serving as primary code reviewer for the Kimly project — coordinating development work, reviewing implementations, and guiding technical decisions across the team", 
+      "Leading a team of 5 developers and serving as primary code reviewer for one of the BDO client projects — coordinating development work, reviewing implementations, and guiding technical decisions across the team", 
       
       "Architected a two-phase pagination strategy for the Item Master API, reducing response time from ~8s to ~225ms — a 97% improvement", 
       
