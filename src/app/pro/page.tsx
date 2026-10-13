@@ -94,7 +94,7 @@ const ProPage = () => {
             </p>
             <p>
               At Techzu Ichicode I build SAP Business One based ERP software
-              for Fortune 500 clients in Singapore, and I lead a team of five on
+              for BDO clients in Singapore, and I lead a team of five on
               one of those projects.
               Before that I built the booking and dispatch system behind{" "}
               <a href={ambufast.demoLink} className={s.link} {...external}>
