@@ -13,6 +13,7 @@ import s from "./pro.module.css";
 const SKILL_GROUPS = [
   { label: "Frontend", items: skills.frontend },
   { label: "Backend", items: skills.backend },
+  { label: "AI & Agents", items: skills.ai },
   { label: "Databases", items: skills.databases },
   { label: "DevOps", items: skills.devops },
   { label: "Tools", items: skills.tools },

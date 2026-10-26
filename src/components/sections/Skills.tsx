@@ -9,6 +9,7 @@ import { ICON_CDN, SECTION_IDS } from "@/lib/constants";
 
 const DEVICON = ICON_CDN.devicon;
 const SIMPLEICON = ICON_CDN.simpleicon;
+const LOBEHUB = ICON_CDN.lobehub;
 
 const deviconMap: Record<string, string> = {
   "Next.js": "nextjs/nextjs-original",
@@ -41,6 +42,22 @@ const deviconMap: Record<string, string> = {
   "Postman": "postman/postman-original",
   "Linux": "linux/linux-original",
   "Digital Ocean": "digitalocean/digitalocean-original",
+  "Zustand": "zustand/zustand-original",
+  "Python": "python/python-original",
+  "FastAPI": "fastapi/fastapi-original",
+  "pgvector": "postgresql/postgresql-original",
+  "Playwright": "playwright/playwright-original",
+};
+
+// AI brand logos, which devicon and simpleicons do not carry
+const lobehubMap: Record<string, string> = {
+  "Claude": "claude-color",
+  "Claude Code": "claudecode-color",
+  "OpenAI": "openai",
+  "Codex": "codex-color",
+  "Cursor": "cursor",
+  "Gemini": "gemini-color",
+  "MCP": "mcp",
 };
 
 const simpleiconMap: Record<string, string> = {
@@ -66,23 +83,25 @@ const simpleiconMap: Record<string, string> = {
   "Prismic CMS": "prismic",
   "Google Maps": "googlemaps",
   "Headless UI": "headlessui",
-  "Zustand": "zustand",
   "JWT Authentication": "jsonwebtokens",
+  "ClickUp": "clickup",
 };
 
-// Black-only simpleicons that need dark:invert
-const monochromeSimple = new Set([
-  "vercel", "railway", "turborepo", "notion", "headlessui",
+// Black-only simpleicons and lobehub icons that need dark:invert
+const monochrome = new Set([
+  "vercel", "railway", "turborepo", "notion", "headlessui", "openai", "cursor", "mcp",
 ]);
 
 // Readable abbreviations for skills with no CDN icon
 const abbrevMap: Record<string, string> = {
   "REST APIs": "API",
+  "RAG": "RAG",
 };
 
 const categories = [
   { label: "Frontend", skills: skills.frontend },
   { label: "Backend", skills: skills.backend },
+  { label: "AI & Agents", skills: skills.ai },
   { label: "Databases", skills: skills.databases },
   { label: "DevOps", skills: skills.devops },
   { label: "Tools", skills: skills.tools },
@@ -92,15 +111,19 @@ function SkillCard({ skill }: { skill: string }) {
   const [failed, setFailed] = useState(false);
   const deviconSlug = deviconMap[skill];
   const simpleslug = simpleiconMap[skill];
-  const hasIcon = (deviconSlug || simpleslug) && !failed;
+  const lobeSlug = lobehubMap[skill];
+  const hasIcon = (deviconSlug || simpleslug || lobeSlug) && !failed;
   const abbr = abbrevMap[skill] ?? skill.replace(/[^a-zA-Z0-9]/g, "").substring(0, 2).toUpperCase();
 
   const src = deviconSlug
     ? `${DEVICON}/${deviconSlug}.svg`
-    : `${SIMPLEICON}/${simpleslug}`;
+    : simpleslug
+      ? `${SIMPLEICON}/${simpleslug}`
+      : `${LOBEHUB}/${lobeSlug}.svg`;
+  const flatSlug = deviconSlug ? undefined : simpleslug ?? lobeSlug;
 
   const imgClass = `w-9 h-9 object-contain${
-    !deviconSlug && simpleslug && monochromeSimple.has(simpleslug) ? " dark:invert" : ""
+    flatSlug && monochrome.has(flatSlug) ? " dark:invert" : ""
   }`;
 
   return (
