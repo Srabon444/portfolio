@@ -11,6 +11,7 @@ import SmoothScrollReveal from "../shared/SmoothScrollReveal";
 import SectionHeader from "../shared/SectionHeader";
 import { useState } from "react";
 import { SECTION_IDS } from "@/lib/constants";
+import { splitBulletLabel } from "@/lib/utils";
 
 export default function Experience() {
   const [activeTab, setActiveTab] = useState<"work" | "education">("work");
@@ -90,14 +91,20 @@ export default function Experience() {
                       </div>
 
                       <ul className="space-y-1.5 mb-4">
-                        {exp.description.map((point, i) => (
-                          <li key={i} className="flex gap-2 text-sm text-muted-foreground leading-relaxed">
-                            <svg className="w-4 h-4 text-primary flex-shrink-0 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <span>{point}</span>
-                          </li>
-                        ))}
+                        {exp.description.map((point, i) => {
+                          const [label, body] = splitBulletLabel(point);
+                          return (
+                            <li key={i} className="flex gap-2 text-sm text-muted-foreground leading-relaxed">
+                              <svg className="w-4 h-4 text-primary flex-shrink-0 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                              <span>
+                                {label && <strong className="font-semibold text-foreground">{label}: </strong>}
+                                {body}
+                              </span>
+                            </li>
+                          );
+                        })}
                       </ul>
 
                       <div className="flex flex-wrap gap-1.5">

@@ -6,7 +6,7 @@ import {
   skills,
 } from "@/data/portfolioData";
 import { RESUME_URL } from "@/lib/constants";
-import { getYearsOfExperience } from "@/lib/utils";
+import { getYearsOfExperience, splitBulletLabel } from "@/lib/utils";
 import s from "./pro.module.css";
 
 // Same groups and order as the main site's Skills section.
@@ -93,14 +93,22 @@ const ProPage = () => {
               behind it, and the data model that holds it together.
             </p>
             <p>
-              At Techzu Ichicode I build SAP Business One based ERP software
-              for BDO clients in Singapore, and I lead a team of five on
-              one of those projects.
-              Before that I built the booking and dispatch system behind{" "}
+              At Techzu Ichicode I lead a team of five building SAP Business
+              One based ERP software for BDO clients in Singapore. I am the
+              technical contact for two of those clients, from requirement
+              meetings to delivery, and I review the team&apos;s code.
+              Before that I led the booking and dispatch system behind{" "}
               <a href={ambufast.demoLink} className={s.link} {...external}>
                 Ambufast, Bangladesh&apos;s largest ambulance booking platform
               </a>
               .
+            </p>
+            <p>
+              I work AI-first: the Claude Code agents I built for
+              implementation, PR review and regression checks are now the
+              team&apos;s workflow, and they cut our code review time by over
+              70%. I also ship tools from that work, like Claude Auto-Resume
+              on the VS Code Marketplace.
             </p>
           </div>
         </Section>
@@ -124,9 +132,15 @@ const ProPage = () => {
                   </span>
                 </div>
                 <ul className={s.bullets}>
-                  {exp.description.map((b) => (
-                    <li key={b}>{stripPeriod(b)}</li>
-                  ))}
+                  {exp.description.map((b) => {
+                    const [label, body] = splitBulletLabel(stripPeriod(b));
+                    return (
+                      <li key={b}>
+                        {label && <strong>{label}: </strong>}
+                        {body}
+                      </li>
+                    );
+                  })}
                 </ul>
                 <Chips items={exp.technologies} />
               </li>

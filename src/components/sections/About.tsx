@@ -7,11 +7,12 @@ import SectionHeader from "../shared/SectionHeader";
 import Link from "next/link";
 import ContactButton from "../shared/ContactButton";
 import { SECTION_IDS } from "@/lib/constants";
+import { getYearsOfExperience } from "@/lib/utils";
 
 const coreValues = [
   {
-    title: "Clean Architecture",
-    description: "Maintainable, scalable code that follows solid architectural principles.",
+    title: "Own the Outcome",
+    description: "From the client's requirement to the release, not just the ticket.",
     icon: (
       <svg className="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
@@ -19,8 +20,8 @@ const coreValues = [
     ),
   },
   {
-    title: "User-Centered Design",
-    description: "Building accessible, usable applications that users actually enjoy.",
+    title: "Review for the Next Person",
+    description: "Code review, shared building blocks and standards the whole team builds on.",
     icon: (
       <svg className="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -28,8 +29,8 @@ const coreValues = [
     ),
   },
   {
-    title: "Continuous Learning",
-    description: "Staying sharp through emerging trends, best practices, and side projects.",
+    title: "Automate the Repetitive",
+    description: "AI agents and internal tools for work nobody should do by hand.",
     icon: (
       <svg className="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
@@ -39,10 +40,10 @@ const coreValues = [
 ];
 
 const quickFacts = [
+  { label: "Experience", value: `${getYearsOfExperience()} years` },
+  { label: "Current", value: "Leading a 5-dev ERP team" },
+  { label: "Focus", value: "ERP · Full-Stack · AI tooling" },
   { label: "Location", value: personalInfo.location },
-  { label: "Availability", value: "Open to opportunities" },
-  { label: "Focus", value: "Full-Stack Engineering" },
-  { label: "Approach", value: "Product-minded" },
 ];
 
 export default function About() {
@@ -65,16 +66,22 @@ export default function About() {
               <p>
                 I&apos;m a{" "}
                 <strong className="text-foreground font-semibold">{personalInfo.title}</strong>{" "}
-                with a passion for building clean, performant, and user-centered digital products.
+                with {getYearsOfExperience()} years of production experience, currently leading a
+                5-developer team building a SaaS ERP on SAP Business One workflows for BDO clients
+                in Singapore. I own the work end to end: requirement meetings with clients, data
+                models and API design, code review, and on-schedule delivery.
               </p>
               <p>
-                Based in {personalInfo.location}, I&apos;ve worked across the full stack — from
-                pixel-perfect UIs to scalable backend APIs. I&apos;m always chasing the next
-                interesting problem to solve.
+                I care about systems that stay fast and correct as data grows: I took the Item
+                Master API from ~8s to ~225ms, built the journal-entry and GL flow behind the
+                Purchasing module, and wrote a cron engine that stays safe across replicas.
               </p>
               <p>
-                When I&apos;m not coding, I&apos;m exploring new technologies, writing technical
-                content, and sharing knowledge with the developer community.
+                I work AI-first. The Claude Code agents I built for implementation, PR review,
+                regression checks and smoke tests are now my team&apos;s workflow and cut code
+                review time by over 70%. I ship from it too: Claude Auto-Resume is on the VS Code
+                Marketplace, and Porashona, a cited AI tutor for Bangladeshi students, is in active
+                development.
               </p>
             </div>
 
@@ -108,7 +115,7 @@ export default function About() {
           <SmoothScrollReveal direction="right" delay={0.2} duration={0.5}>
             <h3 className="text-base font-semibold text-foreground mb-6 flex items-center gap-2">
               <span className="w-1 h-5 bg-primary rounded-full inline-block" />
-              Technical Philosophy
+              How I Work
             </h3>
             <div className="space-y-4">
               {coreValues.map((value, i) => (

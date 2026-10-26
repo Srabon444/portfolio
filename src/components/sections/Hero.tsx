@@ -16,6 +16,7 @@ const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 const roles = [
   "Software Engineer",
+  "Team Lead",
   "ERP Specialist",
   "Full-Stack Engineer",
 ];
@@ -99,9 +100,10 @@ export default function Hero() {
 
           <SmoothScrollReveal delay={0.2} duration={0.5}>
             <p className="text-sm sm:text-[15px] text-muted-foreground mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
-              Full-Stack Software Engineer with {getYearsOfExperience()} years building production-ready web applications
-              — from ERP systems for Fortune 500 clients to Bangladesh&apos;s largest ambulance booking platform.
-              Available for remote opportunities worldwide.
+              Full-Stack Software Engineer with {getYearsOfExperience()} years in production. I lead a 5-developer
+              team building a SaaS ERP for BDO clients in Singapore, work directly with two of those clients, and
+              run my team on the AI agent workflow I built. Before that, Bangladesh&apos;s largest ambulance booking
+              platform. Available for remote opportunities worldwide.
             </p>
           </SmoothScrollReveal>
 
