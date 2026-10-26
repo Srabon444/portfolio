@@ -51,7 +51,6 @@ const deviconMap: Record<string, string> = {
 
 // AI brand logos, which devicon and simpleicons do not carry
 const lobehubMap: Record<string, string> = {
-  "Claude": "claude-color",
   "Claude Code": "claudecode-color",
   "OpenAI": "openai",
   "Codex": "codex-color",

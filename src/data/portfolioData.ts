@@ -84,7 +84,6 @@ export const skills = {
     "Clerk",
   ],
   ai: [
-    "Claude",
     "Claude Code",
     "Codex",
     "Cursor",
