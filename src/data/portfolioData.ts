@@ -176,7 +176,7 @@ export const projects: Project[] = [
   {
     id: 3,
     title: "Team Timesheet",
-    description: "Cross-platform internal tool for Techzu Ichicode, used by 20+ colleagues, that auto-fills the company's Daily Timesheet Form. Ships as Chrome extension, Desktop (Windows/macOS/Linux), and Android apps sharing the same domain logic, with per-project timers, Fillout form automation, and cross-device sync via Google Drive.",
+    description: "Cross-platform internal tool for Techzu Ichicode, used by 20+ users, that auto-fills the company's Daily Timesheet Form. Ships as Chrome extension, Desktop (Windows/macOS/Linux), and Android apps sharing the same domain logic, with per-project timers, Fillout form automation, and cross-device sync via Google Drive.",
     technologies: ["Tauri", "Svelte", "TypeScript", "Chrome Extension API", "Google Drive API"],
     image: "/images/timesheet-1.png",
     demoLink: "",
@@ -187,7 +187,7 @@ export const projects: Project[] = [
   {
     id: 4,
     title: "MealFlow",
-    description: "Cross-platform internal Techzu tool, used by 20+ colleagues, for office meal ordering, tally, dues tracking, and cancel-approval workflow, with separate admin and user dashboards. One SvelteKit + Supabase codebase powers a live web app, Desktop apps (Linux/Windows via Tauri), and an Android app.",
+    description: "Cross-platform internal Techzu tool, used by 20+ users, for office meal ordering, tally, dues tracking, and cancel-approval workflow, with separate admin and user dashboards. One SvelteKit + Supabase codebase powers a live web app, Desktop apps (Linux/Windows via Tauri), and an Android app.",
     technologies: ["SvelteKit", "Supabase", "Tauri", "TypeScript"],
     image: "/images/mealflow-3.png",
     demoLink: "https://mealflow-zu.vercel.app/login",
