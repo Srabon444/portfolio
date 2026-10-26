@@ -6,7 +6,7 @@ import {
   skills,
 } from "@/data/portfolioData";
 import { RESUME_URL } from "@/lib/constants";
-import { getYearsOfExperience } from "@/lib/utils";
+import { getYearsOfExperience, splitBulletLabel } from "@/lib/utils";
 import s from "./pro.module.css";
 
 // Same groups and order as the main site's Skills section.
@@ -124,9 +124,15 @@ const ProPage = () => {
                   </span>
                 </div>
                 <ul className={s.bullets}>
-                  {exp.description.map((b) => (
-                    <li key={b}>{stripPeriod(b)}</li>
-                  ))}
+                  {exp.description.map((b) => {
+                    const [label, body] = splitBulletLabel(stripPeriod(b));
+                    return (
+                      <li key={b}>
+                        {label && <strong>{label}: </strong>}
+                        {body}
+                      </li>
+                    );
+                  })}
                 </ul>
                 <Chips items={exp.technologies} />
               </li>

@@ -170,21 +170,13 @@ export const experiences: Experience[] = [
     jobType: "Hybrid",
     period: "November 2025 – Present",
     description: [
-      "Building and maintaining SaaS ERP solutions for BDO clients in Singapore, based on SAP Business One, working across frontend, backend, database, and business-critical ERP workflows",
-    
-      "Acting as a primary technical point of contact for clients, gathering and translating business requirements into technical solutions and coordinating with the development team for implementation",
-      
-      "Leading a team of 5 developers and serving as primary code reviewer for one of the BDO client projects — coordinating development work, reviewing implementations, and guiding technical decisions across the team", 
-      
-      "Architected a two-phase pagination strategy for the Item Master API, reducing response time from ~8s to ~225ms — a 97% improvement", 
-      
-      "Designed and delivered a complete Purchasing module based on SAP Business One workflows, covering Purchase Requests, Purchase Orders, GRPO, AP Invoices, AP Credit Memos, and Goods Returns, including backend journal entry generation and GL determination", 
-      
-      "Designed a reusable Purchase Reporting engine supporting multiple document types, advanced filtering, and Excel exports",
-      
-      "Built a reusable cron scheduler engine with cross-replica locking to prevent duplicate job execution, powering automated Service Contract lifecycle transitions and renewal reminder emails", 
-      
-      "Implemented configurable rate limiting on unauthenticated endpoints to harden the API against brute-force/abuse"
+      "ERP Platform (Team Lead): Lead a team of 5 developers on a SaaS ERP built on SAP Business One workflows for BDO clients in Singapore; own task breakdown, technical decisions and code review for the project.",
+      "Client Management: Primary technical contact for 2 BDO clients; run requirement meetings directly and turn procurement, accounting and service-contract processes into specs and delivery plans.",
+      "AI-Augmented Engineering: Built the team's AI-assisted workflow on Claude Code, with custom agents for implementation, PR review, regression checks and E2E smoke tests; now used across the team, it automated code review and cut review time by over 70%.",
+      "Standards & Hiring: Authored the team's reusable-code plan, the ERP testing strategy and its E2E scope; evaluate technical assessments for engineering hires.",
+      "Performance Architecture: Replaced multi-table JOINs in the Item Master API with a two-phase paginated query and parallel sub-queries, cutting response time from ~8s to ~225ms (97%).",
+      "Purchasing & Finance: Designed and delivered the Purchasing module across 6 document types (Purchase Request to Goods Return), with automated journal entries and GL determination feeding the financial statements.",
+      "Platform Engineering: Built shared pieces the team reuses: a config-driven reporting engine, a cron scheduler with cross-replica locking, and configurable rate limiting on public endpoints.",
     ],
     technologies: ["React.js", "TypeScript", "JavaScript", "Ant Design", "Node.js", "Express.js", "PostgreSQL", "Sequelize", "Docker", "Git"],
   },
@@ -196,11 +188,11 @@ export const experiences: Experience[] = [
     jobType: "Onsite",
     period: "August 2024 – September 2025",
     description: [
-      "Led development of Bangladesh's largest ambulance booking platform — integrated Google Maps SDK with real-time routing and built the full order lifecycle (booking → dispatch → billing → payment).",
-      "Built a custom CMS for admins and call operators to manage bookings, payments, and billing operations, improving overall operational efficiency by 40%.",
-      "Delivered a fully responsive landscaping service booking platform with a dynamic form builder and admin CMS, reducing missed client inquiries by 50%.",
-      "Reduced API call overhead by 25% through strategic caching and data handling; boosted SEO performance resulting in 35% faster page loads.",
-      "Supervised and mentored a junior developer; maintained a 94% on-schedule project delivery rate across all engagements.",
+      "Ambufast (Project Lead): Led end-to-end delivery of Bangladesh's largest ambulance booking platform, with Google Maps routing and the full booking → dispatch → billing → payment lifecycle.",
+      "Operations CMS: Built the admin and call-operator CMS for bookings, payments and billing, raising operational efficiency by 40%.",
+      "JS Green Media: Delivered a landscaping booking platform with a dynamic form builder and admin CMS, cutting missed client inquiries by 50%.",
+      "Performance & SEO: Reduced API call overhead by 25% through caching and leaner data handling; page loads 35% faster.",
+      "Mentorship & Delivery: Mentored a junior developer through task planning and code review; kept a 94% on-schedule delivery rate.",
     ],
     technologies: ["Next.js", "React.js", "TypeScript", "JavaScript", "Shadcn", "Tailwind CSS", "Recharts", "Zustand", "TanStack Query", "NestJS", "Prisma", "Google Maps API", "Docker", "Git"],
   },
@@ -213,9 +205,8 @@ export const experiences: Experience[] = [
     isContract: true,
     period: "June 2024 – July 2024",
     description: [
-      "Improved functionality, performance, and code readability of an existing Next.js codebase for a UK-based blockchain and digital collectibles client.",
-      "Reduced overall codebase size by 15% through Tailwind CSS refactoring, component consolidation, and elimination of redundant styles.",
-      "Managed content population and data updates via Prismic CMS; resolved critical bugs ensuring a stable, production-ready user experience.",
+      "Codebase Overhaul: Improved performance and readability of a Next.js codebase for a UK blockchain and digital collectibles client; cut codebase size by 15% through Tailwind refactoring and component consolidation.",
+      "Content & Stability: Ran content updates through Prismic CMS and fixed critical bugs ahead of release.",
     ],
     technologies: ["Next.js", "React.js", "JavaScript", "TypeScript", "SASS", "Tailwind", "Prismic", "HTML", "CSS"],
   },
@@ -227,10 +218,8 @@ export const experiences: Experience[] = [
     jobType: "Onsite",
     period: "January 2023 – March 2024",
     description: [
-      "Built scalable, responsive front-end interfaces using React.js, Tailwind CSS, and TypeScript across multiple client projects.",
-      "Developed RESTful backend APIs with Node.js, Express, MongoDB, and Firebase — handling authentication, data management, and third-party integrations.",
-      "Introduced Agile practices and sprint workflows to the team, reducing development cycle time by 25% and improving delivery predictability.",
-      "Collaborated closely with UX designers to ensure pixel-accurate implementation and consistent cross-browser design delivery.",
+      "Client Projects: Built React frontends and Node.js, Express, MongoDB and Firebase APIs across multiple client projects, covering auth, data management and third-party integrations.",
+      "Process: Introduced Agile sprints to the team, cutting development cycle time by 25%.",
     ],
     technologies: ["React.js", "JavaScript", "TypeScript", "Bootstrap", "Node.js", "Express", "MongoDB", "Firebase", "Tailwind"],
   },
