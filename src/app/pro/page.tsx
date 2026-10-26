@@ -89,27 +89,28 @@ const ProPage = () => {
         <Section id="pro-about" title="About">
           <div className={s.prose}>
             <p>
-              I&apos;ve spent {years} years building production web
-              applications end to end: React on the front, Node.js and PostgreSQL
-              behind it, and the data model that holds it together.
+              I&apos;m a full-stack software engineer with {years} years of
+              experience taking products from requirements to production across
+              React, Node.js and PostgreSQL.
             </p>
             <p>
-              At Techzu Ichicode I lead a team of five building SAP Business
-              One based ERP software for BDO clients in Singapore. I am the
-              technical contact for two of those clients, from requirement
-              meetings to delivery, and I review the team&apos;s code.
-              Before that I led the booking and dispatch system behind{" "}
+              At Techzu Ichicode, I work on two SaaS ERP products built on SAP
+              Business One workflows for BDO clients in Singapore, and lead a
+              five-person team on one of them. As the technical point of contact
+              for both clients, I run requirement meetings, shape the delivery
+              plan and review the team&apos;s code. Previously, I led delivery
+              of{" "}
               <a href={ambufast.demoLink} className={s.link} {...external}>
                 Ambufast, Bangladesh&apos;s largest ambulance booking platform
               </a>
               .
             </p>
             <p>
-              I work AI-first: the Claude Code agents I built for
-              implementation, PR review and regression checks are now the
-              team&apos;s workflow, and they cut our code review time by over
-              70%. I also ship tools from that work, like Claude Auto-Resume
-              on the VS Code Marketplace.
+              I treat AI as part of the engineering process, not an add-on. The
+              agent workflow I designed for implementation, PR review and
+              regression checks is now standard on my team and has cut code
+              review time by more than 70%. I also publish tools from this
+              work, including Claude Auto-Resume on the VS Code Marketplace.
             </p>
           </div>
         </Section>

@@ -66,10 +66,10 @@ export default function About() {
               <p>
                 I&apos;m a{" "}
                 <strong className="text-foreground font-semibold">{personalInfo.title}</strong>{" "}
-                with {getYearsOfExperience()} years of production experience, currently leading a
-                5-developer team building a SaaS ERP on SAP Business One workflows for BDO clients
-                in Singapore. I own the work end to end: requirement meetings with clients, data
-                models and API design, code review, and on-schedule delivery.
+                with {getYearsOfExperience()} years of experience. At Techzu Ichicode, I work on two
+                SaaS ERP products built on SAP Business One workflows for BDO clients in Singapore,
+                lead a five-person team on one of them, and serve as the technical point of contact
+                for both clients.
               </p>
               <p>
                 I care about systems that stay fast and correct as data grows: I took the Item
