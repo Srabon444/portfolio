@@ -46,6 +46,7 @@ export const TWITTER_BLUE = "#1D9BF0";
 export const ICON_CDN = {
   devicon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons",
   simpleicon: "https://cdn.simpleicons.org",
+  lobehub: "https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@1.95.0/icons",
 };
 
 export const CONTRIBUTION_CALENDAR_THEME = {
