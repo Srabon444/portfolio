@@ -100,10 +100,11 @@ export default function Hero() {
 
           <SmoothScrollReveal delay={0.2} duration={0.5}>
             <p className="text-sm sm:text-[15px] text-muted-foreground mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
-              Full-Stack Software Engineer with {getYearsOfExperience()} years in production. I lead a 5-developer
-              team building a SaaS ERP for BDO clients in Singapore, work directly with two of those clients, and
-              run my team on the AI agent workflow I built. Before that, Bangladesh&apos;s largest ambulance booking
-              platform. Available for remote opportunities worldwide.
+              Full-stack software engineer with {getYearsOfExperience()} years of experience building production
+              systems end to end. At Techzu Ichicode, I work on two SaaS ERP products for BDO clients in Singapore,
+              lead a five-person team on one of them, and serve as the technical point of contact for both clients.
+              Previously, I led delivery of Bangladesh&apos;s largest ambulance booking platform. Open to remote roles
+              worldwide.
             </p>
           </SmoothScrollReveal>
 

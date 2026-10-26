@@ -206,7 +206,7 @@ export const experiences: Experience[] = [
     jobType: "Hybrid",
     period: "November 2025 – Present",
     description: [
-      "ERP Platform (Team Lead): Lead a team of 5 developers on a SaaS ERP built on SAP Business One workflows for BDO clients in Singapore; own task breakdown, technical decisions and code review for the project.",
+      "ERP Platform (Team Lead): Build two SaaS ERP products on SAP Business One workflows for BDO clients in Singapore and lead a team of 5 developers on one of them; own task breakdown, technical decisions and code review for that project.",
       "Client Management: Primary technical contact for 2 BDO clients; run requirement meetings directly and turn procurement, accounting and service-contract processes into specs and delivery plans.",
       "AI-Augmented Engineering: Built the team's AI-assisted workflow on Claude Code, with custom agents for implementation, PR review, regression checks and E2E smoke tests; now used across the team, it automated code review and cut review time by over 70%.",
       "Standards & Hiring: Authored the team's reusable-code plan, the ERP testing strategy and its E2E scope; evaluate technical assessments for engineering hires.",
