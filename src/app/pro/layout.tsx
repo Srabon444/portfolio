@@ -13,7 +13,7 @@ const caslon = Libre_Caslon_Display({
 
 export const metadata: Metadata = {
   title: `${personalInfo.name}, ${experiences[0].role}`,
-  description: `${experiences[0].role} at ${experiences[0].company}, building ERP software and web platforms.`,
+  description: `${experiences[0].role} at ${experiences[0].company}, leading ERP delivery for BDO clients in Singapore.`,
   robots: { index: false, follow: false },
 };
 

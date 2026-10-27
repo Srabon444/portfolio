@@ -23,8 +23,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Ashraful Islam - Full Stack Developer",
-  description: "Professional portfolio of Ashraful Islam, Full Stack Developer specializing in modern web technologies.",
+  title: "MD Ashraful Islam · Full-Stack Engineer & Team Lead",
+  description: "Full-stack engineer leading ERP delivery for BDO clients in Singapore. React, Node.js, PostgreSQL and AI-assisted engineering.",
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-icon.png",
