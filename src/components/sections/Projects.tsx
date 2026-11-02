@@ -212,7 +212,7 @@ export default function Projects() {
                 type="button"
                 onClick={() => scrollByCard(-1)}
                 aria-label="Previous project"
-                className="hidden md:flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-background border border-border shadow-md text-foreground hover:border-primary/40 hover:text-primary transition-colors"
+                className="flex items-center justify-center absolute left-0 top-24 md:top-1/2 -translate-y-1/2 md:-translate-x-4 w-9 h-9 md:w-10 md:h-10 rounded-full bg-background border border-border shadow-md text-foreground hover:border-primary/40 hover:text-primary transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -222,7 +222,7 @@ export default function Projects() {
                 type="button"
                 onClick={() => scrollByCard(1)}
                 aria-label="Next project"
-                className="hidden md:flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-background border border-border shadow-md text-foreground hover:border-primary/40 hover:text-primary transition-colors"
+                className="flex items-center justify-center absolute right-0 top-24 md:top-1/2 -translate-y-1/2 md:translate-x-4 w-9 h-9 md:w-10 md:h-10 rounded-full bg-background border border-border shadow-md text-foreground hover:border-primary/40 hover:text-primary transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
