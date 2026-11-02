@@ -72,8 +72,8 @@
 /* Label column on the left, content on the right; stacks on small screens. */
 .section {
   display: grid;
-  grid-template-columns: 200px minmax(0, 1fr);
-  gap: 16px 40px;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 16px 32px;
   margin-top: 72px;
 }
 
@@ -86,7 +86,7 @@
 }
 
 .prose {
-  max-width: 62ch;
+  max-width: 70ch;
   font-size: 19px;
   line-height: 1.75;
 }
@@ -194,7 +194,7 @@
 }
 
 .desc {
-  max-width: 62ch;
+  max-width: 70ch;
   margin: 8px 0 0;
   font-size: 16px;
 }
