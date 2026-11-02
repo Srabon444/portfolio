@@ -179,7 +179,7 @@ export const projects: Project[] = [
     description: "Cross-platform internal tool for Techzu Ichicode, used by 20+ users, that auto-fills the company's Daily Timesheet Form and saves developers 140+ hours a month. Ships as Chrome extension, Desktop (Windows/macOS/Linux), and Android apps sharing the same domain logic, with per-project timers, Fillout form automation, and cross-device sync via Google Drive.",
     technologies: ["Tauri", "Svelte", "TypeScript", "Chrome Extension API", "Google Drive API"],
     image: "/images/timesheet-1.png",
-    demoLink: "",
+    demoLink: "https://chromewebstore.google.com/detail/cckkkehfjmgkpenioicnekboplfbgkpn",
     codeLink: "https://github.com/Srabon444/team-timesheet",
     work: false,
     hobby: true,
