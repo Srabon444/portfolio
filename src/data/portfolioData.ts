@@ -185,6 +185,17 @@ export const projects: Project[] = [
     hobby: true,
   },
   {
+    id: 7,
+    title: "Inkline",
+    description: "Chrome extension, published on the Chrome Web Store, that styles email subject lines and any text box with Unicode: 17 styles including bold, italic, underline, strikethrough, script and bubbles. Adds a style button inside Gmail's subject field, a right-click menu on any site that skips password fields, and a toolbar popup that previews every style and copies it in one click. Styles can be toggled, stacked and cleared. Free, with no data collected.",
+    technologies: ["JavaScript", "Chrome Extension API", "Manifest V3"],
+    image: "/images/inkline.png",
+    demoLink: "https://chromewebstore.google.com/detail/inkline-styled-email-subj/gfdbcnjbkpleenpfbkdedogjdlbpignb",
+    codeLink: "https://github.com/Srabon444/inkline",
+    work: false,
+    hobby: true,
+  },
+  {
     id: 4,
     title: "MealFlow",
     description: "Cross-platform internal Techzu tool, used by 20+ users, for office meal ordering, tally, dues tracking, and cancel-approval workflow, with separate admin and user dashboards. One SvelteKit + Supabase codebase powers a live web app, Desktop apps (Linux/Windows via Tauri), and an Android app.",
