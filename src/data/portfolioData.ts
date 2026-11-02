@@ -141,17 +141,6 @@ export const projects: Project[] = [
     hobby: false,
   },
   {
-    id: 2,
-    title: "JS Green Media",
-    description: "A feature-rich, fully responsive landscaping service booking platform with a CMS for admins to manage website content, orders, and invoices efficiently. Includes a dynamic form builder to enable customizable forms on the website.",
-    technologies: ["Next.js", "React.js", "TypeScript", "Tailwind", "Shadcn", "Zod", "TanStack Query", "React Hook Form"],
-    image: "/images/js-green.png",
-    demoLink: "https://jsgreenmedia.com/",
-    codeLink: "",
-    work: true,
-    hobby: false,
-  },
-  {
     id: 5,
     title: "Porashona",
     description: "AI study companion for Bangladeshi Class 11–12 students, in active development. A RAG tutor over NCTB curriculum documents (pgvector) that cites the page behind every answer, says \"not in the book\" when nothing matches, and checks calculations automatically. Students can bring their own Anthropic, OpenAI or Gemini key; admins get a shared key with a daily budget, usage and cost tracking, and an audit log. A Remotion pipeline turns textbook pages into narrated Bengali explainer videos that a person reviews before they go live.",
@@ -205,6 +194,17 @@ export const projects: Project[] = [
     codeLink: "https://github.com/Srabon444/meal-flow",
     work: false,
     hobby: true,
+  },
+  {
+    id: 2,
+    title: "JS Green Media",
+    description: "A feature-rich, fully responsive landscaping service booking platform with a CMS for admins to manage website content, orders, and invoices efficiently. Includes a dynamic form builder to enable customizable forms on the website.",
+    technologies: ["Next.js", "React.js", "TypeScript", "Tailwind", "Shadcn", "Zod", "TanStack Query", "React Hook Form"],
+    image: "/images/js-green.png",
+    demoLink: "https://jsgreenmedia.com/",
+    codeLink: "",
+    work: true,
+    hobby: false,
   },
 ];
 
