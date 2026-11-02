@@ -11,15 +11,25 @@ import { SECTION_IDS } from "@/lib/constants";
 
 const AUTOPLAY_INTERVAL_MS = 5000;
 
+const FILTERS = ["All", "Next.js", "React.js", "TypeScript", "Node.js", "AI / LLM", "PostgreSQL", "Svelte", "Tauri", "Chrome Extension"];
+
+// A filter not listed here matches the technology of the same name
+const FILTER_TECHS: Record<string, string[]> = {
+  "AI / LLM": ["RAG", "Anthropic API", "OpenAI API", "Gemini API"],
+  PostgreSQL: ["PostgreSQL", "Supabase"],
+  Svelte: ["Svelte", "SvelteKit"],
+  "Chrome Extension": ["Chrome Extension API"],
+};
+
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
   const scrollerRef = useRef<HTMLDivElement>(null);
 
-  const priorityFilters = ["All", "Next.js", "React.js", "TypeScript", "Node.js"];
+  const activeTechs = FILTER_TECHS[activeFilter] ?? [activeFilter];
   const filteredProjects =
     activeFilter === "All"
       ? projects
-      : projects.filter((p) => p.technologies.includes(activeFilter));
+      : projects.filter((p) => activeTechs.some((t) => p.technologies.includes(t)));
 
   const scrollByCard = (direction: 1 | -1) => {
     const el = scrollerRef.current;
@@ -74,12 +84,15 @@ export default function Projects() {
         </SmoothScrollReveal>
 
         {/* Filter pills */}
-        <SmoothScrollReveal delay={0.1} className="flex flex-wrap justify-center gap-2 mb-10">
-          {priorityFilters.map((filter) => (
+        <SmoothScrollReveal
+          delay={0.1}
+          className="flex sm:flex-wrap sm:justify-center gap-2 mb-10 -mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto sm:overflow-visible [mask-image:linear-gradient(to_right,black_90%,transparent)] sm:[mask-image:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {FILTERS.map((filter) => (
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 border ${
+              className={`shrink-0 whitespace-nowrap px-4 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 border ${
                 activeFilter === filter
                   ? "bg-primary text-primary-foreground border-primary"
                   : "bg-background text-muted-foreground border-border hover:border-primary/40 hover:text-foreground"
